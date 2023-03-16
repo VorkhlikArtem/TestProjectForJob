@@ -16,6 +16,7 @@ final class CombineNetworkManager {
         return decoder
     }
     
+    // MARK: - fetching Data for Page1 VC
     func getMain() -> AnyPublisher<(LatestResponse, FlashSaleResponse), Error> {
         return getLatest().zip(getFlashSale()).eraseToAnyPublisher()
     }
@@ -32,8 +33,14 @@ final class CombineNetworkManager {
             .eraseToAnyPublisher()
     }
     
- 
+    // MARK: - fetching Data for Page2 VC
+    func getDetails() -> AnyPublisher<DetailModel, Error> {
+        return fetchData(url: Url.details, type: DetailModel.self)
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
     
+    // MARK: - Generic Method for Data Fetching 
     private func fetchData<T: Decodable>(url: String, type: T.Type) -> AnyPublisher<T, Error> {
         guard let url = URL(string: url) else {
             return Fail(error: DataFetchingError.invalidUrl).eraseToAnyPublisher()

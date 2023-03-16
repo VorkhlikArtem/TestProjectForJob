@@ -39,6 +39,15 @@
 		AC9DDE4C29C27526004667EC /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AC9DDE4B29C27526004667EC /* Montserrat-Regular.ttf */; };
 		AC9DDE4E29C27584004667EC /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AC9DDE4D29C27583004667EC /* Montserrat-Medium.ttf */; };
 		AC9DDE5229C27B85004667EC /* UIFont +.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9DDE5129C27B85004667EC /* UIFont +.swift */; };
+		ACB0D9E029C3546400814BFE /* Page2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB0D9DF29C3546400814BFE /* Page2ViewController.swift */; };
+		ACB0D9E229C3575100814BFE /* Page2ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB0D9E129C3575100814BFE /* Page2ViewModel.swift */; };
+		ACB0D9E429C3591B00814BFE /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB0D9E329C3591B00814BFE /* Model.swift */; };
+		ACB0D9E629C364BD00814BFE /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB0D9E529C364BD00814BFE /* ImageCell.swift */; };
+		ACB0D9E829C3663F00814BFE /* DetailInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB0D9E729C3663F00814BFE /* DetailInfoCell.swift */; };
+		ACB0D9EB29C3869C00814BFE /* UIColor +.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB0D9EA29C3869B00814BFE /* UIColor +.swift */; };
+		ACB0D9ED29C3A69F00814BFE /* ColorSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB0D9EC29C3A69F00814BFE /* ColorSegmentedControl.swift */; };
+		ACB0D9EF29C3B44700814BFE /* BottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB0D9EE29C3B44700814BFE /* BottomView.swift */; };
+		ACB0D9F129C3BF4D00814BFE /* UIView + .swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB0D9F029C3BF4D00814BFE /* UIView + .swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +85,15 @@
 		AC9DDE4B29C27526004667EC /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		AC9DDE4D29C27583004667EC /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		AC9DDE5129C27B85004667EC /* UIFont +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont +.swift"; sourceTree = "<group>"; };
+		ACB0D9DF29C3546400814BFE /* Page2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page2ViewController.swift; sourceTree = "<group>"; };
+		ACB0D9E129C3575100814BFE /* Page2ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page2ViewModel.swift; sourceTree = "<group>"; };
+		ACB0D9E329C3591B00814BFE /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		ACB0D9E529C364BD00814BFE /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		ACB0D9E729C3663F00814BFE /* DetailInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoCell.swift; sourceTree = "<group>"; };
+		ACB0D9EA29C3869B00814BFE /* UIColor +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor +.swift"; sourceTree = "<group>"; };
+		ACB0D9EC29C3A69F00814BFE /* ColorSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSegmentedControl.swift; sourceTree = "<group>"; };
+		ACB0D9EE29C3B44700814BFE /* BottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomView.swift; sourceTree = "<group>"; };
+		ACB0D9F029C3BF4D00814BFE /* UIView + .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + .swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +198,8 @@
 				AC9DDE2D29C11F70004667EC /* UIButton +.swift */,
 				AC9DDE3229C126AB004667EC /* Formatter.swift */,
 				AC9DDE5129C27B85004667EC /* UIFont +.swift */,
+				ACB0D9EA29C3869B00814BFE /* UIColor +.swift */,
+				ACB0D9F029C3BF4D00814BFE /* UIView + .swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -197,8 +217,23 @@
 		ACB0D9DE29C353F800814BFE /* Page2 */ = {
 			isa = PBXGroup;
 			children = (
+				ACB0D9DF29C3546400814BFE /* Page2ViewController.swift */,
+				ACB0D9E129C3575100814BFE /* Page2ViewModel.swift */,
+				ACB0D9E329C3591B00814BFE /* Model.swift */,
+				ACB0D9E929C3792800814BFE /* Cells */,
 			);
 			path = Page2;
+			sourceTree = "<group>";
+		};
+		ACB0D9E929C3792800814BFE /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				ACB0D9E529C364BD00814BFE /* ImageCell.swift */,
+				ACB0D9E729C3663F00814BFE /* DetailInfoCell.swift */,
+				ACB0D9EC29C3A69F00814BFE /* ColorSegmentedControl.swift */,
+				ACB0D9EE29C3B44700814BFE /* BottomView.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +313,7 @@
 				AC9DDE3D29C136AA004667EC /* Header.swift in Sources */,
 				AC9DDE5229C27B85004667EC /* UIFont +.swift in Sources */,
 				AC9DDE1B29C11193004667EC /* CombineNetworkManager.swift in Sources */,
+				ACB0D9F129C3BF4D00814BFE /* UIView + .swift in Sources */,
 				AC9DDE3529C129B8004667EC /* FlashSaleCell.swift in Sources */,
 				AC9DDE2829C119D3004667EC /* Category.swift in Sources */,
 				AC9DDE2A29C11D28004667EC /* LatestCell.swift in Sources */,
@@ -290,17 +326,25 @@
 				AC9DDE3F29C2386C004667EC /* CustomLabel.swift in Sources */,
 				AC9DDE1F29C11478004667EC /* Urls.swift in Sources */,
 				AC9DDE1929C11151004667EC /* Page1ViewController.swift in Sources */,
+				ACB0D9EF29C3B44700814BFE /* BottomView.swift in Sources */,
 				AC9DDE4729C2666C004667EC /* CustomNavigationBar.swift in Sources */,
 				AC9DDE4529C25A44004667EC /* AvatarLocationView.swift in Sources */,
 				AC9DDE2229C11560004667EC /* FetchingErrors.swift in Sources */,
+				ACB0D9EB29C3869C00814BFE /* UIColor +.swift in Sources */,
+				ACB0D9E229C3575100814BFE /* Page2ViewModel.swift in Sources */,
+				ACB0D9ED29C3A69F00814BFE /* ColorSegmentedControl.swift in Sources */,
 				AC9DDE1D29C11270004667EC /* Models.swift in Sources */,
 				AC9DDE2E29C11F70004667EC /* UIButton +.swift in Sources */,
 				AC9DDE0429C1110A004667EC /* AppDelegate.swift in Sources */,
+				ACB0D9E829C3663F00814BFE /* DetailInfoCell.swift in Sources */,
 				AC9DDE3329C126AB004667EC /* Formatter.swift in Sources */,
+				ACB0D9E029C3546400814BFE /* Page2ViewController.swift in Sources */,
 				AC9DDE0629C1110A004667EC /* SceneDelegate.swift in Sources */,
+				ACB0D9E429C3591B00814BFE /* Model.swift in Sources */,
 				AC9DDE4129C24A29004667EC /* SearchFieldHeader.swift in Sources */,
 				AC9DDE3929C1336E004667EC /* Page1Model.swift in Sources */,
 				AC9DDE2C29C11F61004667EC /* UILabel +.swift in Sources */,
+				ACB0D9E629C364BD00814BFE /* ImageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
