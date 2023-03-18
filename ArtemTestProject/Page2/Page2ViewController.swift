@@ -11,6 +11,7 @@ import Combine
 class DetailViewController: UIViewController {
     var collectionView: UICollectionView!
     let bottomView = BottomView()
+    let likeShareBlock = LikeShareStack()
     
     var dataSource: UICollectionViewDiffableDataSource<DetailCVViewModel.Section, DetailCVViewModel.Item>?
     let networkManager = CombineNetworkManager()
@@ -37,12 +38,14 @@ class DetailViewController: UIViewController {
                 self.createDataSource()
                 self.reloadData()
                 self.setupButtomView()
+                self.setupLikeShareBlock()
             }
     }
     
     // MARK: - Setup Collection View
     private func setupCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createCompositionalLayout())
+        collectionView.delegate = self
         collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         collectionView.backgroundColor = .white
         view.addSubview(collectionView)
@@ -54,11 +57,17 @@ class DetailViewController: UIViewController {
     // MARK: - Setup Bottom View
     func setupButtomView() {
         let tabBarHeight = tabBarController?.tabBar.frame.height ?? 0
-        view.addSubviewAtTheBottom(subview: bottomView, bottomOffset: tabBarHeight)
-        bottomView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        bottomView.configure(with: model.price)
-        bottomView.clipsToBounds = false
-        bottomView.layer.cornerRadius = 10
+        view.addSubviewAtTheBottom(subview: bottomView, height: 80 + tabBarHeight)
+        bottomView.configure(with: model.price, bottomOffset: tabBarHeight)
+    }
+    
+    func setupLikeShareBlock() {
+        likeShareBlock.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(likeShareBlock)
+        NSLayoutConstraint.activate([
+            likeShareBlock.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
+            likeShareBlock.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+        ])
     }
     
     // MARK: - Reload Data
@@ -114,7 +123,7 @@ extension DetailViewController {
             case .smallImages:
                 return self.createSmallImagesSectionLayout()
             case .detailInfo:
-                return self.createLargeImagesSectionLayout()
+                return self.createDetailSectionLayout()
             default: return nil
             }
         }
@@ -130,9 +139,22 @@ extension DetailViewController {
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
        
         let section = NSCollectionLayoutSection(group: group)
-        //section.interGroupSpacing = 10
-      //  section.contentInsets = .init(top: 16, leading: 0, bottom: 0, trailing: 0)
         section.orthogonalScrollingBehavior = .groupPagingCentered
+        
+        
+        section.visibleItemsInvalidationHandler = { (items, offset, environment) in
+            
+            guard let itemWidth = items.last?.bounds.width else { return }
+            let insets = (environment.container.contentSize.width - itemWidth)
+            let page = Int(offset.x / (itemWidth + insets))
+          //  print(items)
+            if let ind = self.dataSource?.snapshot().indexOfSection(.smallImages) {
+                print(ind)
+                self.collectionView.scrollToItem(at: IndexPath(row: items.last!.indexPath.row, section: ind), at: .centeredHorizontally, animated: true)
+            }
+            
+            
+        }
 
         return section
     }
@@ -158,13 +180,41 @@ extension DetailViewController {
                 item.transform = CGAffineTransform(scaleX: scale, y: scale)
             }
         }
-
         return section
     }
-//
-//    func createDetailInfoSectionLayout() -> NSCollectionLayoutSection? {
-//
-//    }
+    
+    func createDetailSectionLayout() -> NSCollectionLayoutSection? {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = .init(top: 0, leading: 14, bottom: 0, trailing: 14)
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(220) )
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+       
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets.bottom = 85
+        return section
+    }
+
+}
+// MARK: -  UICollectionViewDelegate
+extension DetailViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        guard let section = dataSource?.sectionIdentifier(for: indexPath.section) else {return}
+        switch section {
+        case .smallImages:
+            print("smallImages tapped", indexPath )
+            collectionView.scrollToItem(at: IndexPath(item: indexPath.item, section: 1), at: .centeredHorizontally, animated: true)
+            collectionView.scrollToItem(at: IndexPath(item: indexPath.item, section: 0), at: .centeredHorizontally, animated: true)
+            //dataSource?.snapshot(for: .smallImages).visibleItems.
+        case .largeImages:
+            print("largeImages tapped", indexPath)
+        case .detailInfo:
+            print("detailInfo tapped")
+        }
+    }
+    
 }
 
 

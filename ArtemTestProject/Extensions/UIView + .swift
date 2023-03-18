@@ -20,13 +20,14 @@ extension UIView {
         ])
     }
     
-    func addSubviewAtTheBottom(subview: UIView, bottomOffset: CGFloat) {
+    func addSubviewAtTheBottom(subview: UIView, height: CGFloat) {
         subview.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(subview)
         NSLayoutConstraint.activate([
             subview.leadingAnchor.constraint(equalTo: leadingAnchor),
-            subview.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -bottomOffset),
-            subview.trailingAnchor.constraint(equalTo: trailingAnchor)
+            subview.bottomAnchor.constraint(equalTo: bottomAnchor),
+            subview.trailingAnchor.constraint(equalTo: trailingAnchor),
+            subview.heightAnchor.constraint(equalToConstant: height)
         ])
     }
 }
