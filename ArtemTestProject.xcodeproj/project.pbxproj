@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		AC30B29F29C4AB4600642E69 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC30B29E29C4AB4400642E69 /* MainTabBarController.swift */; };
+		AC5F1EE629C62131005FC3D0 /* OptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F1EE529C62131005FC3D0 /* OptionCell.swift */; };
+		AC5F1EEA29C64A3F005FC3D0 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F1EE929C64A3F005FC3D0 /* SignInViewController.swift */; };
+		AC5F1EEC29C64E1F005FC3D0 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F1EEB29C64E1F005FC3D0 /* CustomTextField.swift */; };
+		AC5F1EEE29C65FEC005FC3D0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F1EED29C65FEB005FC3D0 /* LoginViewController.swift */; };
 		AC9CE92829C5051900D5A3FA /* LikeAndShareBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9CE92729C5051900D5A3FA /* LikeAndShareBlock.swift */; };
 		AC9CE92B29C5EB6400D5A3FA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9CE92A29C5EB6400D5A3FA /* ProfileViewController.swift */; };
 		AC9CE92D29C5F26900D5A3FA /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9CE92C29C5F26900D5A3FA /* ProfileViewModel.swift */; };
 		AC9CE92F29C5F56D00D5A3FA /* HeaderTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9CE92E29C5F56D00D5A3FA /* HeaderTableView.swift */; };
 		AC9CE93129C611B200D5A3FA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9CE93029C611B200D5A3FA /* User.swift */; };
-		AC9CE93329C6128400D5A3FA /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9CE93229C6128400D5A3FA /* Model.swift */; };
+		AC9CE93329C6128400D5A3FA /* OptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9CE93229C6128400D5A3FA /* OptionModel.swift */; };
 		AC9DDE0429C1110A004667EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9DDE0329C1110A004667EC /* AppDelegate.swift */; };
 		AC9DDE0629C1110A004667EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9DDE0529C1110A004667EC /* SceneDelegate.swift */; };
 		AC9DDE0829C1110A004667EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9DDE0729C1110A004667EC /* ViewController.swift */; };
@@ -59,12 +63,16 @@
 
 /* Begin PBXFileReference section */
 		AC30B29E29C4AB4400642E69 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		AC5F1EE529C62131005FC3D0 /* OptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCell.swift; sourceTree = "<group>"; };
+		AC5F1EE929C64A3F005FC3D0 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		AC5F1EEB29C64E1F005FC3D0 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		AC5F1EED29C65FEB005FC3D0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AC9CE92729C5051900D5A3FA /* LikeAndShareBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeAndShareBlock.swift; sourceTree = "<group>"; };
 		AC9CE92A29C5EB6400D5A3FA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		AC9CE92C29C5F26900D5A3FA /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		AC9CE92E29C5F56D00D5A3FA /* HeaderTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableView.swift; sourceTree = "<group>"; };
 		AC9CE93029C611B200D5A3FA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		AC9CE93229C6128400D5A3FA /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		AC9CE93229C6128400D5A3FA /* OptionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionModel.swift; sourceTree = "<group>"; };
 		AC9DDE0029C1110A004667EC /* ArtemTestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArtemTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC9DDE0329C1110A004667EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC9DDE0529C1110A004667EC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,13 +129,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC5F1EE729C62D64005FC3D0 /* Cells and Headers */ = {
+			isa = PBXGroup;
+			children = (
+				AC9CE92E29C5F56D00D5A3FA /* HeaderTableView.swift */,
+				AC5F1EE529C62131005FC3D0 /* OptionCell.swift */,
+			);
+			path = "Cells and Headers";
+			sourceTree = "<group>";
+		};
+		AC5F1EE829C64A1B005FC3D0 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				AC5F1EE929C64A3F005FC3D0 /* SignInViewController.swift */,
+				AC5F1EEB29C64E1F005FC3D0 /* CustomTextField.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		AC5F1EEF29C65FF3005FC3D0 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				AC5F1EED29C65FEB005FC3D0 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		AC9CE92929C5EB4300D5A3FA /* Profile */ = {
 			isa = PBXGroup;
 			children = (
 				AC9CE92A29C5EB6400D5A3FA /* ProfileViewController.swift */,
 				AC9CE92C29C5F26900D5A3FA /* ProfileViewModel.swift */,
-				AC9CE93229C6128400D5A3FA /* Model.swift */,
-				AC9CE92E29C5F56D00D5A3FA /* HeaderTableView.swift */,
+				AC9CE93229C6128400D5A3FA /* OptionModel.swift */,
+				AC5F1EE729C62D64005FC3D0 /* Cells and Headers */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -154,6 +188,8 @@
 				AC9DDE0329C1110A004667EC /* AppDelegate.swift */,
 				AC9DDE0529C1110A004667EC /* SceneDelegate.swift */,
 				AC30B29E29C4AB4400642E69 /* MainTabBarController.swift */,
+				AC5F1EEF29C65FF3005FC3D0 /* Login */,
+				AC5F1EE829C64A1B005FC3D0 /* SignIn */,
 				AC9CE92929C5EB4300D5A3FA /* Profile */,
 				ACB0D9DE29C353F800814BFE /* Page2 */,
 				AC9DDE1729C11120004667EC /* Page1 */,
@@ -339,6 +375,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC5F1EEA29C64A3F005FC3D0 /* SignInViewController.swift in Sources */,
 				AC9DDE3D29C136AA004667EC /* Header.swift in Sources */,
 				AC9DDE5229C27B85004667EC /* UIFont +.swift in Sources */,
 				AC9DDE1B29C11193004667EC /* CombineNetworkManager.swift in Sources */,
@@ -360,10 +397,11 @@
 				AC9CE93129C611B200D5A3FA /* User.swift in Sources */,
 				ACB0D9EF29C3B44700814BFE /* BottomView.swift in Sources */,
 				AC9DDE4729C2666C004667EC /* CustomNavigationBar.swift in Sources */,
-				AC9CE93329C6128400D5A3FA /* Model.swift in Sources */,
+				AC9CE93329C6128400D5A3FA /* OptionModel.swift in Sources */,
 				AC9DDE4529C25A44004667EC /* AvatarLocationView.swift in Sources */,
 				AC9DDE2229C11560004667EC /* FetchingErrors.swift in Sources */,
 				ACB0D9EB29C3869C00814BFE /* UIColor +.swift in Sources */,
+				AC5F1EEE29C65FEC005FC3D0 /* LoginViewController.swift in Sources */,
 				ACB0D9E229C3575100814BFE /* Page2ViewModel.swift in Sources */,
 				ACB0D9ED29C3A69F00814BFE /* ColorSegmentedControl.swift in Sources */,
 				AC9DDE1D29C11270004667EC /* Models.swift in Sources */,
@@ -376,11 +414,13 @@
 				AC9DDE0629C1110A004667EC /* SceneDelegate.swift in Sources */,
 				ACB0D9E429C3591B00814BFE /* Model.swift in Sources */,
 				AC9DDE4129C24A29004667EC /* SearchFieldHeader.swift in Sources */,
+				AC5F1EE629C62131005FC3D0 /* OptionCell.swift in Sources */,
 				AC9DDE3929C1336E004667EC /* Page1Model.swift in Sources */,
 				AC9CE92F29C5F56D00D5A3FA /* HeaderTableView.swift in Sources */,
 				AC9CE92D29C5F26900D5A3FA /* ProfileViewModel.swift in Sources */,
 				AC9DDE2C29C11F61004667EC /* UILabel +.swift in Sources */,
 				ACB0D9E629C364BD00814BFE /* ImageCell.swift in Sources */,
+				AC5F1EEC29C64E1F005FC3D0 /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

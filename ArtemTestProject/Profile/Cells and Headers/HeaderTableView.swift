@@ -6,8 +6,14 @@
 //
 
 import UIKit
+import Combine
 
 class HeaderTableView: UIView {
+    private let changePhotoSubject = PassthroughSubject<Void, Never>()
+    var changePhotoPublisher: AnyPublisher<Void, Never> {
+        changePhotoSubject.eraseToAnyPublisher()
+    }
+    
     private let avatarImageView = UIImageView()
     private let changePhotoButton = UIButton(text: "Change photo", font: .montserratMedium(10), textColor: #colorLiteral(red: 0.5019204021, green: 0.5019834638, blue: 0.501899004, alpha: 1))
     private let nameLabel = UILabel(font: .montserratBold(20), textColor: #colorLiteral(red: 0.2470369339, green: 0.2470711172, blue: 0.247025311, alpha: 1))
@@ -24,7 +30,7 @@ class HeaderTableView: UIView {
         config.baseBackgroundColor = #colorLiteral(red: 0.306866169, green: 0.3334070146, blue: 0.8420930505, alpha: 1)
         config.cornerStyle = .large
         config.imagePadding = 30
-        config.contentInsets = .init(top: 10, leading: 30, bottom: 10, trailing: 30)
+        config.contentInsets = .init(top: 10, leading: 30, bottom: 10, trailing: 60)
         config.image = UIImage(named: "upload")
         button.configuration = config
         return button
@@ -32,13 +38,16 @@ class HeaderTableView: UIView {
     
     init(image: UIImage, name: String) {
         super.init(frame: CGRect(x: 0, y: 0, width: 300, height: 180))
-      //  super.init(frame: .zero)
         setupConstaints()
         avatarImageView.backgroundColor = .red
         avatarImageView.image = image
         nameLabel.text = name
-        
-        
+        changePhotoButton.addTarget(self, action: #selector(changePhotoTapped), for: .touchUpInside)
+        uploadButton.addTarget(self, action: #selector(changePhotoTapped), for: .touchUpInside)
+    }
+    
+    func setImage(image: UIImage) {
+        avatarImageView.image = image
     }
     
     override func layoutSubviews() {
@@ -47,15 +56,16 @@ class HeaderTableView: UIView {
         avatarImageView.layer.cornerRadius = avatarImageView.frame.height/2
     }
     
+    @objc private func changePhotoTapped() {
+        changePhotoSubject.send()
+    }
+    
     func setupConstaints() {
         changePhotoButton.setContentHuggingPriority(.defaultHigh, for: .vertical)
         
         let vStack = UIStackView(arrangedSubviews: [avatarImageView, changePhotoButton, nameLabel, uploadButton])
         vStack.axis = .vertical
         vStack.alignment = .center
-        //vStack.distribution = .fillProportionally
-       // vStack.setCustomSpacing(5, after: avatarImageView)
-       // vStack.setCustomSpacing(10, after: changePhotoButton)
         vStack.setCustomSpacing(20, after: nameLabel)
         
         vStack.translatesAutoresizingMaskIntoConstraints = false
@@ -63,8 +73,6 @@ class HeaderTableView: UIView {
         addSubview(vStack)
         NSLayoutConstraint.activate([
             vStack.topAnchor.constraint(equalTo: topAnchor),
-           // vStack.leadingAnchor.constraint(equalTo: leadingAnchor),
-           // vStack.trailingAnchor.constraint(equalTo: trailingAnchor),
             vStack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
             vStack.centerXAnchor.constraint(equalTo: centerXAnchor),
             

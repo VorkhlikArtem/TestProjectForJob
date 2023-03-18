@@ -18,13 +18,13 @@ class MainTabBarController: UITabBarController {
     private func setupTabBar() {
         let mainNC = generateNavigationController(rootViewController: MainViewController(), image: "house")
         let favoriteNC = generateNavigationController(rootViewController: DetailViewController(), image: "heart")
-        let cartNC = generateNavigationController(rootViewController: UIViewController(), image: "cart")
-        let messagesNC = generateNavigationController(rootViewController: UIViewController(), image: "messages")
+        let cartNC = generateNavigationController(rootViewController: SignInViewController(), image: "cart")
+        let messagesNC = generateNavigationController(rootViewController: LoginViewController(), image: "messages")
         let profileNC = generateNavigationController(rootViewController: ProfileViewController(), image: "profile")
         
         
 
-        viewControllers = [profileNC, mainNC, favoriteNC, cartNC, messagesNC  ]
+        viewControllers = [messagesNC, cartNC,   profileNC, mainNC, favoriteNC  ]
     }
     
     

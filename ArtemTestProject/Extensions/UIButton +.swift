@@ -32,4 +32,10 @@ extension UIButton {
         self.setImage(UIImage(named: image), for: .normal)
         self.tintColor = imageColor
     }
+    
+    convenience init(imageColor: UIColor, buttonColor: UIColor? = nil) {
+        self.init(type: .system)
+        self.tintColor = imageColor
+        self.backgroundColor = buttonColor
+    }
 }

@@ -14,3 +14,4 @@ struct User {
     let avatar: UIImage
     let balance: Int
 }
+

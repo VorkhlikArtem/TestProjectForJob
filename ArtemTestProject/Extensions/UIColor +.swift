@@ -8,6 +8,9 @@
 import UIKit
 
 extension UIColor {
+    
+    static let background = #colorLiteral(red: 0.9786669612, green: 0.9746211171, blue: 0.9982194304, alpha: 1)
+    
     convenience init?(hex: String) {
         self.init()
         var hexSanitized = hex.trimmingCharacters(in: .whitespacesAndNewlines)

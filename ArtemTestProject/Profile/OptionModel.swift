@@ -11,5 +11,5 @@ struct Option {
     let image: String
     let title: String
     let hasDisclosure: Bool
-    let accessoryInfo: String? 
+    let accessoryInfo: String?
 }
