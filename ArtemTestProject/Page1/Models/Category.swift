@@ -20,8 +20,6 @@ extension CategoryItem {
         CategoryItem(title: "Cars", imageName: "Cars"),
         CategoryItem(title: "Furniture", imageName: "Furniture"),
         CategoryItem(title: "Kids", imageName: "Kids"),
-//        CategoryItem(title: "Sport", imageName: "sport"),
-//        CategoryItem(title: "Cameras", imageName: "cameras"),
-//        CategoryItem(title: "Drugs", imageName: "drugs")
+
     ]
 }

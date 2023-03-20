@@ -12,6 +12,9 @@
 		AC5F1EEA29C64A3F005FC3D0 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F1EE929C64A3F005FC3D0 /* SignInViewController.swift */; };
 		AC5F1EEC29C64E1F005FC3D0 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F1EEB29C64E1F005FC3D0 /* CustomTextField.swift */; };
 		AC5F1EEE29C65FEC005FC3D0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F1EED29C65FEB005FC3D0 /* LoginViewController.swift */; };
+		AC5F1EF429C78BDA005FC3D0 /* UIApplication +.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F1EF329C78BD9005FC3D0 /* UIApplication +.swift */; };
+		AC5F1EF629C865B9005FC3D0 /* NotificationCenter +.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F1EF529C865B8005FC3D0 /* NotificationCenter +.swift */; };
+		AC5F1EF829C8DB36005FC3D0 /* UIViewController +.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F1EF729C8DB35005FC3D0 /* UIViewController +.swift */; };
 		AC9CE92829C5051900D5A3FA /* LikeAndShareBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9CE92729C5051900D5A3FA /* LikeAndShareBlock.swift */; };
 		AC9CE92B29C5EB6400D5A3FA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9CE92A29C5EB6400D5A3FA /* ProfileViewController.swift */; };
 		AC9CE92D29C5F26900D5A3FA /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9CE92C29C5F26900D5A3FA /* ProfileViewModel.swift */; };
@@ -37,7 +40,6 @@
 		AC9DDE3129C12432004667EC /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9DDE3029C12432004667EC /* WebImageView.swift */; };
 		AC9DDE3329C126AB004667EC /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9DDE3229C126AB004667EC /* Formatter.swift */; };
 		AC9DDE3529C129B8004667EC /* FlashSaleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9DDE3429C129B8004667EC /* FlashSaleCell.swift */; };
-		AC9DDE3729C12CB3004667EC /* CellItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9DDE3629C12CB3004667EC /* CellItemProtocol.swift */; };
 		AC9DDE3929C1336E004667EC /* Page1Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9DDE3829C1336E004667EC /* Page1Model.swift */; };
 		AC9DDE3B29C133E5004667EC /* Page1ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9DDE3A29C133E5004667EC /* Page1ViewModel.swift */; };
 		AC9DDE3D29C136AA004667EC /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9DDE3C29C136AA004667EC /* Header.swift */; };
@@ -45,7 +47,6 @@
 		AC9DDE4129C24A29004667EC /* SearchFieldHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9DDE4029C24A28004667EC /* SearchFieldHeader.swift */; };
 		AC9DDE4329C24EC3004667EC /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9DDE4229C24EC3004667EC /* SearchTextField.swift */; };
 		AC9DDE4529C25A44004667EC /* AvatarLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9DDE4429C25A44004667EC /* AvatarLocationView.swift */; };
-		AC9DDE4729C2666C004667EC /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9DDE4629C2666C004667EC /* CustomNavigationBar.swift */; };
 		AC9DDE4A29C274F3004667EC /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AC9DDE4929C274F3004667EC /* Montserrat-Bold.ttf */; };
 		AC9DDE4C29C27526004667EC /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AC9DDE4B29C27526004667EC /* Montserrat-Regular.ttf */; };
 		AC9DDE4E29C27584004667EC /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AC9DDE4D29C27583004667EC /* Montserrat-Medium.ttf */; };
@@ -67,6 +68,9 @@
 		AC5F1EE929C64A3F005FC3D0 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		AC5F1EEB29C64E1F005FC3D0 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		AC5F1EED29C65FEB005FC3D0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		AC5F1EF329C78BD9005FC3D0 /* UIApplication +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication +.swift"; sourceTree = "<group>"; };
+		AC5F1EF529C865B8005FC3D0 /* NotificationCenter +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter +.swift"; sourceTree = "<group>"; };
+		AC5F1EF729C8DB35005FC3D0 /* UIViewController +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController +.swift"; sourceTree = "<group>"; };
 		AC9CE92729C5051900D5A3FA /* LikeAndShareBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeAndShareBlock.swift; sourceTree = "<group>"; };
 		AC9CE92A29C5EB6400D5A3FA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		AC9CE92C29C5F26900D5A3FA /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -94,7 +98,6 @@
 		AC9DDE3029C12432004667EC /* WebImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
 		AC9DDE3229C126AB004667EC /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		AC9DDE3429C129B8004667EC /* FlashSaleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashSaleCell.swift; sourceTree = "<group>"; };
-		AC9DDE3629C12CB3004667EC /* CellItemProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellItemProtocol.swift; sourceTree = "<group>"; };
 		AC9DDE3829C1336E004667EC /* Page1Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page1Model.swift; sourceTree = "<group>"; };
 		AC9DDE3A29C133E5004667EC /* Page1ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page1ViewModel.swift; sourceTree = "<group>"; };
 		AC9DDE3C29C136AA004667EC /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
@@ -102,7 +105,6 @@
 		AC9DDE4029C24A28004667EC /* SearchFieldHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFieldHeader.swift; sourceTree = "<group>"; };
 		AC9DDE4229C24EC3004667EC /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
 		AC9DDE4429C25A44004667EC /* AvatarLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarLocationView.swift; sourceTree = "<group>"; };
-		AC9DDE4629C2666C004667EC /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		AC9DDE4929C274F3004667EC /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		AC9DDE4B29C27526004667EC /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		AC9DDE4D29C27583004667EC /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
@@ -155,6 +157,25 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		AC5F1EF129C76844005FC3D0 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				AC9DDE4429C25A44004667EC /* AvatarLocationView.swift */,
+				AC9DDE4229C24EC3004667EC /* SearchTextField.swift */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		AC5F1EF229C768BB005FC3D0 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				ACB0D9EC29C3A69F00814BFE /* ColorSegmentedControl.swift */,
+				ACB0D9EE29C3B44700814BFE /* BottomView.swift */,
+				AC9CE92729C5051900D5A3FA /* LikeAndShareBlock.swift */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
 		AC9CE92929C5EB4300D5A3FA /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,17 +209,16 @@
 				AC9DDE0329C1110A004667EC /* AppDelegate.swift */,
 				AC9DDE0529C1110A004667EC /* SceneDelegate.swift */,
 				AC30B29E29C4AB4400642E69 /* MainTabBarController.swift */,
+				AC9CE93029C611B200D5A3FA /* User.swift */,
 				AC5F1EEF29C65FF3005FC3D0 /* Login */,
 				AC5F1EE829C64A1B005FC3D0 /* SignIn */,
 				AC9CE92929C5EB4300D5A3FA /* Profile */,
-				ACB0D9DE29C353F800814BFE /* Page2 */,
 				AC9DDE1729C11120004667EC /* Page1 */,
-				AC9DDE2629C119B3004667EC /* Model */,
+				ACB0D9DE29C353F800814BFE /* Page2 */,
 				AC9DDE2029C11543004667EC /* Services */,
 				AC9DDE2F29C11F76004667EC /* Extensions */,
 				AC9DDE0929C1110A004667EC /* Main.storyboard */,
 				AC9DDE0729C1110A004667EC /* ViewController.swift */,
-				AC9CE93029C611B200D5A3FA /* User.swift */,
 				AC9DDE4829C274AC004667EC /* Fonts */,
 				AC9DDE0C29C11112004667EC /* Assets.xcassets */,
 				AC9DDE0E29C11112004667EC /* LaunchScreen.storyboard */,
@@ -212,10 +232,9 @@
 			children = (
 				AC9DDE1829C11151004667EC /* Page1ViewController.swift */,
 				AC9DDE3A29C133E5004667EC /* Page1ViewModel.swift */,
-				AC9DDE3629C12CB3004667EC /* CellItemProtocol.swift */,
-				AC9DDE4429C25A44004667EC /* AvatarLocationView.swift */,
-				AC9DDE4629C2666C004667EC /* CustomNavigationBar.swift */,
-				AC9DDE2329C1171A004667EC /* Cells */,
+				AC9DDE2629C119B3004667EC /* Models */,
+				AC9DDE2329C1171A004667EC /* Cells and Headers */,
+				AC5F1EF129C76844005FC3D0 /* Custom Views */,
 			);
 			path = Page1;
 			sourceTree = "<group>";
@@ -231,27 +250,26 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		AC9DDE2329C1171A004667EC /* Cells */ = {
+		AC9DDE2329C1171A004667EC /* Cells and Headers */ = {
 			isa = PBXGroup;
 			children = (
+				AC9DDE4029C24A28004667EC /* SearchFieldHeader.swift */,
 				AC9DDE2429C11729004667EC /* CategoryCell.swift */,
 				AC9DDE2929C11D28004667EC /* LatestCell.swift */,
 				AC9DDE3429C129B8004667EC /* FlashSaleCell.swift */,
 				AC9DDE3C29C136AA004667EC /* Header.swift */,
-				AC9DDE4029C24A28004667EC /* SearchFieldHeader.swift */,
-				AC9DDE4229C24EC3004667EC /* SearchTextField.swift */,
 			);
-			path = Cells;
+			path = "Cells and Headers";
 			sourceTree = "<group>";
 		};
-		AC9DDE2629C119B3004667EC /* Model */ = {
+		AC9DDE2629C119B3004667EC /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				AC9DDE3829C1336E004667EC /* Page1Model.swift */,
 				AC9DDE1C29C11270004667EC /* Models.swift */,
 				AC9DDE2729C119D3004667EC /* Category.swift */,
-				AC9DDE3829C1336E004667EC /* Page1Model.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		AC9DDE2F29C11F76004667EC /* Extensions */ = {
@@ -264,6 +282,9 @@
 				AC9DDE5129C27B85004667EC /* UIFont +.swift */,
 				ACB0D9EA29C3869B00814BFE /* UIColor +.swift */,
 				ACB0D9F029C3BF4D00814BFE /* UIView + .swift */,
+				AC5F1EF329C78BD9005FC3D0 /* UIApplication +.swift */,
+				AC5F1EF529C865B8005FC3D0 /* NotificationCenter +.swift */,
+				AC5F1EF729C8DB35005FC3D0 /* UIViewController +.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -285,6 +306,7 @@
 				ACB0D9E129C3575100814BFE /* Page2ViewModel.swift */,
 				ACB0D9E329C3591B00814BFE /* Model.swift */,
 				ACB0D9E929C3792800814BFE /* Cells */,
+				AC5F1EF229C768BB005FC3D0 /* Custom Views */,
 			);
 			path = Page2;
 			sourceTree = "<group>";
@@ -294,9 +316,6 @@
 			children = (
 				ACB0D9E529C364BD00814BFE /* ImageCell.swift */,
 				ACB0D9E729C3663F00814BFE /* DetailInfoCell.swift */,
-				ACB0D9EC29C3A69F00814BFE /* ColorSegmentedControl.swift */,
-				ACB0D9EE29C3B44700814BFE /* BottomView.swift */,
-				AC9CE92729C5051900D5A3FA /* LikeAndShareBlock.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -379,11 +398,11 @@
 				AC9DDE3D29C136AA004667EC /* Header.swift in Sources */,
 				AC9DDE5229C27B85004667EC /* UIFont +.swift in Sources */,
 				AC9DDE1B29C11193004667EC /* CombineNetworkManager.swift in Sources */,
+				AC5F1EF629C865B9005FC3D0 /* NotificationCenter +.swift in Sources */,
 				ACB0D9F129C3BF4D00814BFE /* UIView + .swift in Sources */,
 				AC9DDE3529C129B8004667EC /* FlashSaleCell.swift in Sources */,
 				AC9DDE2829C119D3004667EC /* Category.swift in Sources */,
 				AC9DDE2A29C11D28004667EC /* LatestCell.swift in Sources */,
-				AC9DDE3729C12CB3004667EC /* CellItemProtocol.swift in Sources */,
 				AC9DDE3B29C133E5004667EC /* Page1ViewModel.swift in Sources */,
 				AC9CE92829C5051900D5A3FA /* LikeAndShareBlock.swift in Sources */,
 				AC9DDE3129C12432004667EC /* WebImageView.swift in Sources */,
@@ -396,7 +415,6 @@
 				AC9DDE1929C11151004667EC /* Page1ViewController.swift in Sources */,
 				AC9CE93129C611B200D5A3FA /* User.swift in Sources */,
 				ACB0D9EF29C3B44700814BFE /* BottomView.swift in Sources */,
-				AC9DDE4729C2666C004667EC /* CustomNavigationBar.swift in Sources */,
 				AC9CE93329C6128400D5A3FA /* OptionModel.swift in Sources */,
 				AC9DDE4529C25A44004667EC /* AvatarLocationView.swift in Sources */,
 				AC9DDE2229C11560004667EC /* FetchingErrors.swift in Sources */,
@@ -415,7 +433,9 @@
 				ACB0D9E429C3591B00814BFE /* Model.swift in Sources */,
 				AC9DDE4129C24A29004667EC /* SearchFieldHeader.swift in Sources */,
 				AC5F1EE629C62131005FC3D0 /* OptionCell.swift in Sources */,
+				AC5F1EF829C8DB36005FC3D0 /* UIViewController +.swift in Sources */,
 				AC9DDE3929C1336E004667EC /* Page1Model.swift in Sources */,
+				AC5F1EF429C78BDA005FC3D0 /* UIApplication +.swift in Sources */,
 				AC9CE92F29C5F56D00D5A3FA /* HeaderTableView.swift in Sources */,
 				AC9CE92D29C5F26900D5A3FA /* ProfileViewModel.swift in Sources */,
 				AC9DDE2C29C11F61004667EC /* UILabel +.swift in Sources */,

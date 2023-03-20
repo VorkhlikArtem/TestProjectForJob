@@ -52,6 +52,7 @@ class SignInViewController: UIViewController {
         view.backgroundColor = .background
         signInButton.layer.cornerRadius = 10
         setupConstraints()
+        hideKeyboardAfterTapping()
     }
     
 }

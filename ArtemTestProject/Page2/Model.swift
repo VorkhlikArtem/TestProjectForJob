@@ -45,21 +45,6 @@ struct DetailInfoModel: Hashable {
 extension DetailInfoModel {
     var formattedRating: String  { String( round(rating*10) / 10) }
     var formattedReviews: String { "(\(numberOfReviews) reviews)" }
-    var formattedPrice: String { price.formattedPriceWithSeparatorAndTwoFractionDigits  }
+    var formattedPrice: String { price.formattedWithCommaDecimalSeparator2  }
 }
 
-//{
-//  "name": "Reebok Classic",
-//  "description": "Shoes inspired by 80s running shoes are still relevant today",
-//  "rating": 4.3,
-//  "number_of_reviews": 4000,
-//  "price": 24,
-//  "colors": [
-//    "#ffffff",
-//    "#b5b5b5",
-//    "#000000"
-//  ],
-//  "image_urls": [
-//  
-//  ]
-//}

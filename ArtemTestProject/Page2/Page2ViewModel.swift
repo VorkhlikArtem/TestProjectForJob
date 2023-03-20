@@ -6,11 +6,8 @@
 //
 
 import UIKit
-protocol DetailCVViewModelProtocol {
-  
-}
 
-struct DetailCVViewModel: DetailCVViewModelProtocol {
+struct DetailCVViewModel {
 
     enum Section: Int, CaseIterable {
         case largeImages
@@ -29,8 +26,6 @@ struct DetailCVViewModel: DetailCVViewModelProtocol {
             case .details(let details):
                 hasher.combine(details)
             }
-        }
-
-        
+        } 
     }
 }

@@ -18,6 +18,7 @@ class LoginViewController: UIViewController {
         view.backgroundColor = .background
         loginButton.layer.cornerRadius = 10
         setupConstraints()
+        hideKeyboardAfterTapping()
     }
     
 }

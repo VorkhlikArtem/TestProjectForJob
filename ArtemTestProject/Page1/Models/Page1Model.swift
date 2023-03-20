@@ -9,6 +9,7 @@ import Foundation
 
 struct MainModel{
     var selectCategoryImageNames = [CategoryItem]()
-    var latestItem = [LatestItem]()
-    var flashSaleItem = [FlashSaleItem]()
+    var latestItems = [LatestItem]()
+    var flashSaleItems = [FlashSaleItem]()
+    var brandsItems = [BrandsItem]()
 }

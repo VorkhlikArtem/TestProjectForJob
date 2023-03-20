@@ -21,8 +21,7 @@ class DetailViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-       // view.backgroundColor = .backgroundColor
-      //  setupNavigationBar()
+        setupNavigationBar()
         
         cancellable = networkManager.getDetails()
             .sink { completion in
@@ -42,16 +41,26 @@ class DetailViewController: UIViewController {
             }
     }
     
-    // MARK: - Setup Collection View
+    // MARK: - Setup Collection View and Navigation Bar
     private func setupCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createCompositionalLayout())
         collectionView.delegate = self
         collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .background
         view.addSubview(collectionView)
         
         collectionView.register(ImageCell.self, forCellWithReuseIdentifier: ImageCell.reuseId)
         collectionView.register(DetailInfoCell.self, forCellWithReuseIdentifier: DetailInfoCell.reuseId)
+    }
+    
+    private func setupNavigationBar() {
+        let back = UIBarButtonItem(image: UIImage(named: "back"), style: .done, target: self, action: #selector(goBack))
+        back.tintColor = .black
+        navigationItem.leftBarButtonItem = back
+    }
+    
+    @objc private func goBack() {
+        navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Setup Bottom View
@@ -149,8 +158,8 @@ extension DetailViewController {
             let page = Int(offset.x / (itemWidth + insets))
           //  print(items)
             if let ind = self.dataSource?.snapshot().indexOfSection(.smallImages) {
-                print(ind)
-                self.collectionView.scrollToItem(at: IndexPath(row: items.last!.indexPath.row, section: ind), at: .centeredHorizontally, animated: true)
+                
+              //  self.collectionView.scrollToItem(at: IndexPath(row: items.last!.indexPath.row, section: ind), at: .centeredHorizontally, animated: true)
             }
             
             
@@ -184,16 +193,24 @@ extension DetailViewController {
     }
     
     func createDetailSectionLayout() -> NSCollectionLayoutSection? {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+        
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(220) )
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = .init(top: 0, leading: 14, bottom: 0, trailing: 14)
+//        item.contentInsets = .init(top: 0, leading: 14, bottom: 0, trailing: 14)
         
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(220) )
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
        
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets.bottom = 85
+        section.contentInsets = .init(top: 0, leading: 14, bottom: 100, trailing: 14)
         return section
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        coordinator.animate(alongsideTransition: { context in
+            self.collectionView.collectionViewLayout.invalidateLayout()
+        }, completion: nil)
     }
 
 }

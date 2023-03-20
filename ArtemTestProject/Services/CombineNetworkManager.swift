@@ -40,6 +40,14 @@ final class CombineNetworkManager {
             .eraseToAnyPublisher()
     }
     
+    // MARK: - fetching search words
+    func getSearchWords() -> AnyPublisher<[String], Error> {
+        return fetchData(url: Url.searchWords, type: SearchWordsResponse.self)
+            .map{ $0.words }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
     // MARK: - Generic Method for Data Fetching 
     private func fetchData<T: Decodable>(url: String, type: T.Type) -> AnyPublisher<T, Error> {
         guard let url = URL(string: url) else {

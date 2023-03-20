@@ -34,12 +34,17 @@ class SelectCategoryCell: UICollectionViewCell {
         setupConstraints()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        circleView.layer.cornerRadius = circleView.frame.height / 2
+    }
     
     func configure(with categoryModel: CategoryItem) {
         categoryImageView.image = UIImage(named: categoryModel.imageName)?.withTintColor(.gray)
         categoryTitle.text = categoryModel.title
     }
     
+    // MARK: - Setup Constraints
     func setupConstraints() {
         circleView.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.addSubview(circleView)
@@ -68,13 +73,8 @@ class SelectCategoryCell: UICollectionViewCell {
             categoryTitle.topAnchor.constraint(equalTo: circleView.bottomAnchor, constant: 7)
 
         ])
+        layoutIfNeeded()
     }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        circleView.layer.cornerRadius = circleView.frame.height / 2
-    }
-    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

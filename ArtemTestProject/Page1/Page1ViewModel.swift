@@ -12,11 +12,13 @@ enum MainViewModel {
         case selectCategorySection = ""
         case latestSection = "Latest"
         case flashSaleSection = "Flash Sale"
+        case brandsSection = "Brands"
     }
     enum Item : Hashable {
         case selectCategoryItem(category: CategoryItem  )
         case latestItem(latestItem: LatestItem)
         case flashSaleItem(flashSaleItem: FlashSaleItem)
+        case brandsItem(brandsItem: BrandsItem)
         
         func hash(into hasher: inout Hasher) {
             switch self {
@@ -27,6 +29,8 @@ enum MainViewModel {
                 hasher.combine(latestItem.name)
             case .flashSaleItem(let flashSaleItem):
                 hasher.combine(flashSaleItem.name)
+            case .brandsItem(let brandsItem):
+                hasher.combine(brandsItem)
             }
         }
         

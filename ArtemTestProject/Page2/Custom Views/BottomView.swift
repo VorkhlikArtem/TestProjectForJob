@@ -51,7 +51,7 @@ class BottomView: UIView {
             guard let self = self else {return}
             self.quantityLabel.text = "Quantity: " + String(count)
             let newPrice = self.price * Double(count)
-            self.priceLabel.text = "$ \(newPrice.formattedPriceWithSeparatorAndTwoFractionDigits)"
+            self.priceLabel.text = newPrice.formattedPriceWithSeparatorAndTwoFractionDigits
             self.setOpacity()
         }
         .store(in: &cancellables)
@@ -59,7 +59,7 @@ class BottomView: UIView {
     
     func configure(with price: Double, bottomOffset: CGFloat) {
         self.price = price
-        priceLabel.text = "$ \(price.formattedPriceWithSeparatorAndTwoFractionDigits)"
+        priceLabel.text = price.formattedPriceWithSeparatorAndTwoFractionDigits
         setupConstraints(bottomOffset: bottomOffset)
     }
     

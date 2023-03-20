@@ -28,7 +28,7 @@ class ProfileViewController: UIViewController {
         setupNavigationBar()
     }
     
-    // MARK: - setup Table View and Nav Bar
+    // MARK: - setup Table View and Navigation Bar
     private func setupTableView() {
         tableView = UITableView()
         tableView.dataSource = self

@@ -27,7 +27,7 @@ class AvatarLocationView: UIStackView {
     
     init(_ image: UIImage?) {
         super.init(frame: .zero)
-        avatarImageView.image = image ?? UIImage(named: "person.crop.circle.fill")
+        avatarImageView.image = image ?? UIImage(systemName: "person.crop.circle.fill")
         axis = .vertical
         alignment = .center
         

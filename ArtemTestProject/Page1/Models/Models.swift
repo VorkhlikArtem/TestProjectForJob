@@ -30,14 +30,24 @@ struct FlashSaleItem: Decodable {
     var imageUrl: String
 }
 
+struct BrandsItem: Hashable {
+    var imageUrl: String
+}
+
+struct SearchWordsResponse: Decodable {
+    var words: [String]
+}
+
+
+
 extension LatestItem {
     var formattedPrice: String {
-        price.formattedPriceWithSeparatorAndTwoFractionDigits
+        price.formattedWithCommaDecimalSeparator3
     }
 }
 extension FlashSaleItem {
     var formattedPrice: String {
-        price.formattedPriceWithSeparatorAndTwoFractionDigits
+        price.formattedWithCommaDecimalSeparator2
     }
 }
 

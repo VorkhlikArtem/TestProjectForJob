@@ -30,7 +30,7 @@ class HeaderWithButton: UICollectionReusableView {
         setupConstraints()
     }
     
-    func configure(title: String, buttonText: String) {
+    func configure(title: String) {
         self.title.text = title
     }
     

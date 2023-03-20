@@ -39,7 +39,7 @@ class HeaderTableView: UIView {
     init(image: UIImage, name: String) {
         super.init(frame: CGRect(x: 0, y: 0, width: 300, height: 180))
         setupConstaints()
-        avatarImageView.backgroundColor = .red
+        avatarImageView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         avatarImageView.image = image
         nameLabel.text = name
         changePhotoButton.addTarget(self, action: #selector(changePhotoTapped), for: .touchUpInside)
@@ -60,6 +60,7 @@ class HeaderTableView: UIView {
         changePhotoSubject.send()
     }
     
+    // MARK: - Setup Constaints
     func setupConstaints() {
         changePhotoButton.setContentHuggingPriority(.defaultHigh, for: .vertical)
         
@@ -80,6 +81,7 @@ class HeaderTableView: UIView {
             avatarImageView.widthAnchor.constraint(equalToConstant: 50),
         
         ])
+        layoutIfNeeded()
     }
     
     required init?(coder: NSCoder) {

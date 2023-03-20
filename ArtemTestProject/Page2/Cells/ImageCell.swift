@@ -27,12 +27,11 @@ class ImageCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        //clipsToBounds = false
         layer.masksToBounds = false
-        self.layer.shadowOpacity = 0.5
+        self.layer.shadowOpacity = 0.3
         self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOffset = .zero
-        self.layer.shadowRadius = 30
+        self.layer.shadowRadius = 5
         
         productImageView.layer.cornerRadius = 7
     }

@@ -20,6 +20,7 @@ class MainViewController: UIViewController {
     let dataFetcher = CombineNetworkManager()
     
     var cancellable: AnyCancellable?
+    private var cancellables: Set<AnyCancellable> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,7 @@ class MainViewController: UIViewController {
         model.selectCategoryImageNames = CategoryItem.categorySectionModel
         self.reloadData()
         getData()
+        hideKeyboardAfterTapping()
     }
     
     
@@ -48,10 +50,10 @@ class MainViewController: UIViewController {
                 }
             } receiveValue: { [weak self] (latest, flash) in
                 guard let self = self else {return}
-                self.model.latestItem = latest.latest
-                self.model.flashSaleItem = flash.flashSale
+                self.model.latestItems = latest.latest
+                self.model.flashSaleItems = flash.flashSale
+                self.model.brandsItems = latest.latest.map{BrandsItem(imageUrl: $0.imageUrl)} + flash.flashSale.map{BrandsItem(imageUrl: $0.imageUrl)}
                 self.reloadData()
-             
                 self.refreshControl.endRefreshing()
             }
 
@@ -83,7 +85,7 @@ class MainViewController: UIViewController {
     private func setupCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createCompositionalLayout())
         collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .background
         view.addSubview(collectionView)
         
         collectionView.register(SearchFieldHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SearchFieldHeader.reuseId)
@@ -91,6 +93,7 @@ class MainViewController: UIViewController {
         collectionView.register(SelectCategoryCell.self, forCellWithReuseIdentifier: SelectCategoryCell.reuseId)
         collectionView.register(LatestCell.self, forCellWithReuseIdentifier: LatestCell.reuseId)
         collectionView.register(FlashSaleCell.self, forCellWithReuseIdentifier: FlashSaleCell.reuseId)
+        collectionView.register(ImageCell.self, forCellWithReuseIdentifier: ImageCell.reuseId)
 
     }
     
@@ -103,11 +106,14 @@ class MainViewController: UIViewController {
         let selectCategoryItems = model.selectCategoryImageNames.map {MainViewModel.Item.selectCategoryItem(category: $0) }
         snapShot.appendItems(selectCategoryItems, toSection: .selectCategorySection)
         
-        let latestItem = model.latestItem.map {MainViewModel.Item.latestItem(latestItem: $0) }
-        snapShot.appendItems(latestItem, toSection: .latestSection)
+        let latestItems = model.latestItems.map {MainViewModel.Item.latestItem(latestItem: $0) }
+        snapShot.appendItems(latestItems, toSection: .latestSection)
 
-        let flashSaleItem = model.flashSaleItem.map {MainViewModel.Item.flashSaleItem(flashSaleItem: $0) }
-        snapShot.appendItems(flashSaleItem, toSection: .flashSaleSection)
+        let flashSaleItems = model.flashSaleItems.map {MainViewModel.Item.flashSaleItem(flashSaleItem: $0) }
+        snapShot.appendItems(flashSaleItems, toSection: .flashSaleSection)
+        
+        let brandsItems = model.brandsItems.map{MainViewModel.Item.brandsItem(brandsItem: $0) }
+        snapShot.appendItems(brandsItems, toSection: .brandsSection)
         
         dataSource?.apply(snapShot, animatingDifferences: true)
     }
@@ -130,8 +136,12 @@ extension MainViewController {
                 
             case .flashSaleItem(let flashSaleItem):
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FlashSaleCell.reuseId, for: indexPath) as! FlashSaleCell
-               // cell.delegate = self
                 cell.configure(with: flashSaleItem)
+                return cell
+                
+            case .brandsItem(let brandsItem):
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCell.reuseId, for: indexPath) as! ImageCell
+                cell.configure(with: brandsItem.imageUrl)
                 return cell
             }
         }
@@ -143,10 +153,32 @@ extension MainViewController {
                 let section = self.dataSource.snapshot().sectionIdentifiers[indexPath.section]
                 switch section {
                 case .selectCategorySection:
-                    return collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SearchFieldHeader.reuseId, for: indexPath) as! SearchFieldHeader
+                    let searchHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SearchFieldHeader.reuseId, for: indexPath) as! SearchFieldHeader
+                    
+                    searchHeader.changedSearchTextPublisher
+                        .sink { searchText in
+                        self.dataFetcher.getSearchWords().sink { completion in
+                            switch completion {
+                            case .finished: break
+                            case .failure(let error):
+                                print(error.localizedDescription)
+                            }
+                        } receiveValue: { words in
+                            searchHeader.prefixWords = words.filter{ $0.lowercased().hasPrefix(searchText.lowercased())
+                            }
+                        }.store(in: &searchHeader.cancellables)
+                    }.store(in: &searchHeader.cancellables)
+                    
+                    searchHeader.textFieldTappedPublisher.sink { [weak self] tableView in
+                        guard let self = self else {return}
+                        self.view.addSubview(tableView)
+                        tableView.frame = CGRect(x: 60, y: 110, width: self.view.frame.width - 120, height: 0)
+                    }.store(in: &searchHeader.cancellables)
+                    
+                    return searchHeader
                 default:
                     let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderWithButton.reuseId, for: indexPath) as! HeaderWithButton
-                    sectionHeader.configure(title: section.rawValue, buttonText: "see more")
+                    sectionHeader.configure(title: section.rawValue)
                     return sectionHeader
                 }
             default: return nil
@@ -168,6 +200,8 @@ extension MainViewController {
                 return self.createLatestSectionLayout()
             case .flashSaleSection:
                 return self.createFlashSaleSectionLayout()
+            case .brandsSection:
+                return self.createLatestSectionLayout()
             }
         }
         let config = UICollectionViewCompositionalLayoutConfiguration()
@@ -247,11 +281,16 @@ extension MainViewController: UICollectionViewDelegate {
         case .selectCategorySection:
             print("selectCategorySection tapped")
         case .latestSection:
-            print("hotSalesSection tapped")
+            print("latestSection tapped")
         case .flashSaleSection:
             showNextVC()
-            print("bestSellersSection tapped")
+        case .brandsSection:
+            print("brandsSection tapped")
         }
+    }
+ 
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        NotificationCenter.default.post(name: .hideFilterTables, object: nil)
     }
     
 }
@@ -259,7 +298,7 @@ extension MainViewController: UICollectionViewDelegate {
 // MARK: - Routing
 extension MainViewController {
     private func showNextVC() {
-        let productDetailVC = UIViewController()
+        let productDetailVC = DetailViewController()
         navigationController?.pushViewController(productDetailVC, animated: true)
     }
 }

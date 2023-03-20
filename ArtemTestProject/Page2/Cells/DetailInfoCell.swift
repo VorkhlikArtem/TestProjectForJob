@@ -28,22 +28,12 @@ class DetailInfoCell: UICollectionViewCell {
         descriptionLabel.numberOfLines = 0
     }
     
-    override func prepareForReuse() {
-        
-    }
-    
     override func layoutSubviews() {
         super.layoutSubviews()
-        //clipsToBounds = false
-        layer.masksToBounds = false
-        self.layer.shadowOpacity = 0.5
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOffset = .zero
-        self.layer.shadowRadius = 30
-        
+        layer.masksToBounds = false     
     }
     
-    
+
     func configure(with detailInfo: DetailInfoModel) {
         nameLabel.text = detailInfo.name
         descriptionLabel.text = detailInfo.description
@@ -65,21 +55,22 @@ class DetailInfoCell: UICollectionViewCell {
         vStack.distribution = .equalSpacing
         vStack.spacing = 20
         
-        let hStack = UIStackView(arrangedSubviews: [vStack, priceLabel])
-
+        let priceStack = UIStackView(arrangedSubviews: [priceLabel, UIView()])
+        priceStack.axis = .vertical
+        
+        let hStack = UIStackView(arrangedSubviews: [vStack, priceStack])
         hStack.axis = .horizontal
-        hStack.alignment = .top
         hStack.distribution = .equalSpacing
-        hStack.spacing = 50
+        hStack.spacing = 40
         
         hStack.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(hStack)
+        contentView.addSubview(hStack)
         
         NSLayoutConstraint.activate([
-            hStack.topAnchor.constraint(equalTo: topAnchor),
-            hStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
-            hStack.bottomAnchor.constraint(equalTo: bottomAnchor),
-            hStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5)
+            hStack.topAnchor.constraint(equalTo: contentView.topAnchor),
+            hStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5),
+            hStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            hStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5)
 
         ])
     }
