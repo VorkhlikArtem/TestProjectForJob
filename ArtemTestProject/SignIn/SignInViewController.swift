@@ -6,9 +6,16 @@
 //
 
 import UIKit
+import Combine
 
 class SignInViewController: UIViewController {
+    let authService = AuthService()
+    var alreadyHaveButtonTapped = PassthroughSubject<Void, Never>()
+    var signinButtonTapped = PassthroughSubject<Void, Never>()
+    var subscriptions = Set<AnyCancellable>()
+    
     let titleLabel = UILabel(text: "Sign In", font: .montserratMedium(30), textColor: #colorLiteral(red: 0.08607355505, green: 0.09469824284, blue: 0.1493803263, alpha: 1))
+    let errorLabel = UILabel(font: .montserratBold(15), textColor: .red)
     let firstNameTextField = CustomTextField(placeholder: "First name")
     let lastNameTextField = CustomTextField(placeholder: "Last name")
     let emailTextField = CustomTextField(placeholder: "Email")
@@ -53,6 +60,27 @@ class SignInViewController: UIViewController {
         signInButton.layer.cornerRadius = 10
         setupConstraints()
         hideKeyboardAfterTapping()
+        loginButton.addTarget(self, action: #selector(alreadyHaveTapped), for: .touchUpInside)
+        signInButton.addTarget(self, action: #selector(signinTapped), for: .touchUpInside)
+    }
+    
+    @objc private func alreadyHaveTapped() {
+        alreadyHaveButtonTapped.send()
+    }
+    
+    @objc private func signinTapped() {
+        authService.signin(firstName: firstNameTextField.text, lastName: lastNameTextField.text, email: emailTextField.text) .sink { completion in
+            switch completion {
+            case .finished: break
+            case .failure(let error) :
+                guard let error = error as? AuthError else {return}
+                self.errorLabel.text = error.errorDescription
+
+            }
+        } receiveValue: { user in
+            print(user)
+           // self.signinButtonTapped.send()
+        }.store(in: &subscriptions)
     }
     
 }
@@ -77,12 +105,18 @@ extension SignInViewController {
         vStack.setCustomSpacing(5, after: signInButton)
         vStack.setCustomSpacing(50, after: hStack)
         
+        errorLabel.translatesAutoresizingMaskIntoConstraints = false
+        vStack.addSubview(errorLabel)
+        
         vStack.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(vStack)
         NSLayoutConstraint.activate([
             vStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
             vStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             vStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            
+            errorLabel.leadingAnchor.constraint(equalTo: firstNameTextField.leadingAnchor),
+            errorLabel.bottomAnchor.constraint(equalTo: firstNameTextField.topAnchor, constant: -10)
         ])
         
     }

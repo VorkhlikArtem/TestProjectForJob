@@ -16,48 +16,36 @@ class MainViewController: UIViewController {
     typealias DataSourceType = UICollectionViewDiffableDataSource<MainViewModel.Section, MainViewModel.Item>
     
     var dataSource: DataSourceType!
-    var model = MainModel()
-    let dataFetcher = CombineNetworkManager()
-    
+    var viewModel: MainViewModel!
     var cancellable: AnyCancellable?
-    private var cancellables: Set<AnyCancellable> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewModel = MainViewModel()
+        cancellable = viewModel.onUpdate.sink { [weak self] completion in
+            switch completion {
+            case .finished: break
+            case .failure(_):
+                self?.refreshControl.endRefreshing()
+                }
+            } receiveValue: { [weak self] in
+                self?.refreshControl.endRefreshing()
+                self?.reloadData()
+        }
+        viewModel.getData()
+        self.reloadData()
+        
         setupNavigationBar()
         setupCollectionView()
-        dataSource = createDataSource()
+        setupRefreshControl()
+        hideKeyboardAfterTapping()
         
+        dataSource = createDataSource()
         collectionView.dataSource = dataSource
         collectionView.delegate = self
-        setupRefreshControl()
-    
-        model.selectCategoryImageNames = CategoryItem.categorySectionModel
-        self.reloadData()
-        getData()
-        hideKeyboardAfterTapping()
     }
     
-    
-    private func getData() {
-        cancellable = dataFetcher.getMain()
-            .sink { [weak self] completion in
-                switch completion {
-                case .finished: break
-                case .failure(let error):
-                    self?.refreshControl.endRefreshing()
-                    print(error.localizedDescription)
-                }
-            } receiveValue: { [weak self] (latest, flash) in
-                guard let self = self else {return}
-                self.model.latestItems = latest.latest
-                self.model.flashSaleItems = flash.flashSale
-                self.model.brandsItems = latest.latest.map{BrandsItem(imageUrl: $0.imageUrl)} + flash.flashSale.map{BrandsItem(imageUrl: $0.imageUrl)}
-                self.reloadData()
-                self.refreshControl.endRefreshing()
-            }
-
-    }
     
     // MARK: - Setup Refresh Control
     private func setupRefreshControl() {
@@ -66,7 +54,7 @@ class MainViewController: UIViewController {
     }
     
     @objc private func updateMain() {
-       getData()
+        viewModel.getData()
     }
     
     // MARK: -  NavigationBar & CollectionView setups
@@ -103,16 +91,16 @@ class MainViewController: UIViewController {
         var snapShot = NSDiffableDataSourceSnapshot<MainViewModel.Section, MainViewModel.Item>()
         snapShot.appendSections(MainViewModel.Section.allCases)
         
-        let selectCategoryItems = model.selectCategoryImageNames.map {MainViewModel.Item.selectCategoryItem(category: $0) }
+        let selectCategoryItems = viewModel.model.selectCategoryImageNames.map {MainViewModel.Item.selectCategoryItem(category: $0) }
         snapShot.appendItems(selectCategoryItems, toSection: .selectCategorySection)
         
-        let latestItems = model.latestItems.map {MainViewModel.Item.latestItem(latestItem: $0) }
+        let latestItems = viewModel.model.latestItems.map {MainViewModel.Item.latestItem(latestItem: $0) }
         snapShot.appendItems(latestItems, toSection: .latestSection)
 
-        let flashSaleItems = model.flashSaleItems.map {MainViewModel.Item.flashSaleItem(flashSaleItem: $0) }
+        let flashSaleItems = viewModel.model.flashSaleItems.map {MainViewModel.Item.flashSaleItem(flashSaleItem: $0) }
         snapShot.appendItems(flashSaleItems, toSection: .flashSaleSection)
         
-        let brandsItems = model.brandsItems.map{MainViewModel.Item.brandsItem(brandsItem: $0) }
+        let brandsItems = viewModel.model.brandsItems.map{MainViewModel.Item.brandsItem(brandsItem: $0) }
         snapShot.appendItems(brandsItems, toSection: .brandsSection)
         
         dataSource?.apply(snapShot, animatingDifferences: true)
@@ -155,19 +143,12 @@ extension MainViewController {
                 case .selectCategorySection:
                     let searchHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SearchFieldHeader.reuseId, for: indexPath) as! SearchFieldHeader
                     
-                    searchHeader.changedSearchTextPublisher
-                        .sink { searchText in
-                        self.dataFetcher.getSearchWords().sink { completion in
-                            switch completion {
-                            case .finished: break
-                            case .failure(let error):
-                                print(error.localizedDescription)
-                            }
-                        } receiveValue: { words in
-                            searchHeader.prefixWords = words.filter{ $0.lowercased().hasPrefix(searchText.lowercased())
-                            }
-                        }.store(in: &searchHeader.cancellables)
-                    }.store(in: &searchHeader.cancellables)
+                    searchHeader.changedSearchTextPublisher.flatMap { words in
+                        self.viewModel.getSearchingWords(words)
+                    }.sink(receiveValue: { words in
+                        searchHeader.prefixWords = words
+                    })
+                    .store(in: &searchHeader.cancellables)
                     
                     searchHeader.textFieldTappedPublisher.sink { [weak self] tableView in
                         guard let self = self else {return}
@@ -303,22 +284,3 @@ extension MainViewController {
     }
 }
 
-//MARK: - SwiftUI
-import SwiftUI
-struct MainControllerProvider: PreviewProvider {
-    static var previews: some View {
-        ContainerView().edgesIgnoringSafeArea(.all)
-    }
-    struct ContainerView: UIViewControllerRepresentable {
-        
-        let viewController = UINavigationController(rootViewController: MainViewController())
-        
-   
-        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-        }
-        
-        func makeUIViewController(context: Context) -> some UIViewController {
-            return viewController
-        }
-    }
-}

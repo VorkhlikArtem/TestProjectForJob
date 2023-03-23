@@ -9,6 +9,8 @@ import UIKit
 import Combine
 
 class ProfileViewController: UIViewController {
+    let localDataManager = LocalDataManager.shared
+    
     var tableView: UITableView!
     var viewModel = ProfileViewModel()
     var header: HeaderTableView!
@@ -18,7 +20,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .background
-        header = HeaderTableView(image: viewModel.user.avatar, name: viewModel.name)
+        header = HeaderTableView(image: viewModel.image, name: viewModel.name)
         header.changePhotoPublisher.sink { [weak self] in
             self?.addImageTapped()
         }.store(in: &cancellables)
@@ -61,7 +63,7 @@ class ProfileViewController: UIViewController {
 }
 
 // MARK: -  UITableViewDataSource, UITableViewDelegate
-extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
+extension ProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.options.count 
     }
@@ -73,13 +75,22 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+
+}
+
+extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 65
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == tableView.numberOfRows(inSection: 0) - 1 {
+            localDataManager.logoutCurrentUser()
+        }
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    
 }
 
 
@@ -96,5 +107,6 @@ extension ProfileViewController: UIImagePickerControllerDelegate & UINavigationC
         picker.dismiss(animated: true)
         guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {return}
         header.setImage(image: image)
+        viewModel.savePhoto(image)
     }
 }

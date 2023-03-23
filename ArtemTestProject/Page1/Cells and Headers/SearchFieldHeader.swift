@@ -58,10 +58,10 @@ class SearchFieldHeader: UICollectionReusableView {
     
     
     @objc func textChanged(textField: UITextField) {
-        guard !(textField.text ?? "").isEmpty else {
-            self.promptTable.frame.size.height = 0; return
-        }
-        changedSearchTextSubject.send(textField.text!)
+//        guard !(textField.text ?? "").isEmpty else {
+//            self.promptTable.frame.size.height = 0; return
+//        }
+        changedSearchTextSubject.send(textField.text ?? "")
     }
     
     // MARK: - setup Table View and constraints

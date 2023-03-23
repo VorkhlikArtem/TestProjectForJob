@@ -15,12 +15,20 @@
 		AC5F1EF429C78BDA005FC3D0 /* UIApplication +.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F1EF329C78BD9005FC3D0 /* UIApplication +.swift */; };
 		AC5F1EF629C865B9005FC3D0 /* NotificationCenter +.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F1EF529C865B8005FC3D0 /* NotificationCenter +.swift */; };
 		AC5F1EF829C8DB36005FC3D0 /* UIViewController +.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F1EF729C8DB35005FC3D0 /* UIViewController +.swift */; };
+		AC5F1EFA29CB6D7B005FC3D0 /* Coordinator .swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F1EF929CB6D79005FC3D0 /* Coordinator .swift */; };
+		AC5F1EFC29CB6E35005FC3D0 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F1EFB29CB6E35005FC3D0 /* AppCoordinator.swift */; };
+		AC5F1EFE29CB72DD005FC3D0 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F1EFD29CB72DC005FC3D0 /* AuthCoordinator.swift */; };
+		AC5F1F0029CB752B005FC3D0 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F1EFF29CB752B005FC3D0 /* MainCoordinator.swift */; };
+		AC5F1F0229CB7B70005FC3D0 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F1F0129CB7B70005FC3D0 /* Validator.swift */; };
+		AC5F1F0429CB7C8C005FC3D0 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F1F0329CB7C8B005FC3D0 /* AuthError.swift */; };
+		AC5F1F0729CB8677005FC3D0 /* LocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F1F0629CB8677005FC3D0 /* LocalDataManager.swift */; };
+		AC5F1F0929CB9DF0005FC3D0 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F1F0829CB9DF0005FC3D0 /* AuthService.swift */; };
 		AC9CE92829C5051900D5A3FA /* LikeAndShareBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9CE92729C5051900D5A3FA /* LikeAndShareBlock.swift */; };
 		AC9CE92B29C5EB6400D5A3FA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9CE92A29C5EB6400D5A3FA /* ProfileViewController.swift */; };
 		AC9CE92D29C5F26900D5A3FA /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9CE92C29C5F26900D5A3FA /* ProfileViewModel.swift */; };
 		AC9CE92F29C5F56D00D5A3FA /* HeaderTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9CE92E29C5F56D00D5A3FA /* HeaderTableView.swift */; };
 		AC9CE93129C611B200D5A3FA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9CE93029C611B200D5A3FA /* User.swift */; };
-		AC9CE93329C6128400D5A3FA /* OptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9CE93229C6128400D5A3FA /* OptionModel.swift */; };
+		AC9CE93329C6128400D5A3FA /* CellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9CE93229C6128400D5A3FA /* CellViewModel.swift */; };
 		AC9DDE0429C1110A004667EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9DDE0329C1110A004667EC /* AppDelegate.swift */; };
 		AC9DDE0629C1110A004667EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9DDE0529C1110A004667EC /* SceneDelegate.swift */; };
 		AC9DDE0829C1110A004667EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9DDE0729C1110A004667EC /* ViewController.swift */; };
@@ -71,12 +79,20 @@
 		AC5F1EF329C78BD9005FC3D0 /* UIApplication +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication +.swift"; sourceTree = "<group>"; };
 		AC5F1EF529C865B8005FC3D0 /* NotificationCenter +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter +.swift"; sourceTree = "<group>"; };
 		AC5F1EF729C8DB35005FC3D0 /* UIViewController +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController +.swift"; sourceTree = "<group>"; };
+		AC5F1EF929CB6D79005FC3D0 /* Coordinator .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Coordinator .swift"; sourceTree = "<group>"; };
+		AC5F1EFB29CB6E35005FC3D0 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		AC5F1EFD29CB72DC005FC3D0 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
+		AC5F1EFF29CB752B005FC3D0 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		AC5F1F0129CB7B70005FC3D0 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		AC5F1F0329CB7C8B005FC3D0 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
+		AC5F1F0629CB8677005FC3D0 /* LocalDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataManager.swift; sourceTree = "<group>"; };
+		AC5F1F0829CB9DF0005FC3D0 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		AC9CE92729C5051900D5A3FA /* LikeAndShareBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeAndShareBlock.swift; sourceTree = "<group>"; };
 		AC9CE92A29C5EB6400D5A3FA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		AC9CE92C29C5F26900D5A3FA /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		AC9CE92E29C5F56D00D5A3FA /* HeaderTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableView.swift; sourceTree = "<group>"; };
 		AC9CE93029C611B200D5A3FA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		AC9CE93229C6128400D5A3FA /* OptionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionModel.swift; sourceTree = "<group>"; };
+		AC9CE93229C6128400D5A3FA /* CellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellViewModel.swift; sourceTree = "<group>"; };
 		AC9DDE0029C1110A004667EC /* ArtemTestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArtemTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC9DDE0329C1110A004667EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC9DDE0529C1110A004667EC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -176,12 +192,32 @@
 			path = "Custom Views";
 			sourceTree = "<group>";
 		};
+		AC5F1F0529CB7E10005FC3D0 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				AC5F1F0129CB7B70005FC3D0 /* Validator.swift */,
+				AC5F1F0329CB7C8B005FC3D0 /* AuthError.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		AC5F1F0A29CBB6F2005FC3D0 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				AC5F1EF929CB6D79005FC3D0 /* Coordinator .swift */,
+				AC5F1EFB29CB6E35005FC3D0 /* AppCoordinator.swift */,
+				AC5F1EFD29CB72DC005FC3D0 /* AuthCoordinator.swift */,
+				AC5F1EFF29CB752B005FC3D0 /* MainCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
 		AC9CE92929C5EB4300D5A3FA /* Profile */ = {
 			isa = PBXGroup;
 			children = (
 				AC9CE92A29C5EB6400D5A3FA /* ProfileViewController.swift */,
 				AC9CE92C29C5F26900D5A3FA /* ProfileViewModel.swift */,
-				AC9CE93229C6128400D5A3FA /* OptionModel.swift */,
+				AC9CE93229C6128400D5A3FA /* CellViewModel.swift */,
 				AC5F1EE729C62D64005FC3D0 /* Cells and Headers */,
 			);
 			path = Profile;
@@ -210,8 +246,12 @@
 				AC9DDE0529C1110A004667EC /* SceneDelegate.swift */,
 				AC30B29E29C4AB4400642E69 /* MainTabBarController.swift */,
 				AC9CE93029C611B200D5A3FA /* User.swift */,
-				AC5F1EEF29C65FF3005FC3D0 /* Login */,
+				AC5F1F0A29CBB6F2005FC3D0 /* Coordinators */,
+				AC5F1F0629CB8677005FC3D0 /* LocalDataManager.swift */,
+				AC5F1F0829CB9DF0005FC3D0 /* AuthService.swift */,
+				AC5F1F0529CB7E10005FC3D0 /* Helpers */,
 				AC5F1EE829C64A1B005FC3D0 /* SignIn */,
+				AC5F1EEF29C65FF3005FC3D0 /* Login */,
 				AC9CE92929C5EB4300D5A3FA /* Profile */,
 				AC9DDE1729C11120004667EC /* Page1 */,
 				ACB0D9DE29C353F800814BFE /* Page2 */,
@@ -398,6 +438,7 @@
 				AC9DDE3D29C136AA004667EC /* Header.swift in Sources */,
 				AC9DDE5229C27B85004667EC /* UIFont +.swift in Sources */,
 				AC9DDE1B29C11193004667EC /* CombineNetworkManager.swift in Sources */,
+				AC5F1F0229CB7B70005FC3D0 /* Validator.swift in Sources */,
 				AC5F1EF629C865B9005FC3D0 /* NotificationCenter +.swift in Sources */,
 				ACB0D9F129C3BF4D00814BFE /* UIView + .swift in Sources */,
 				AC9DDE3529C129B8004667EC /* FlashSaleCell.swift in Sources */,
@@ -411,25 +452,31 @@
 				AC9DDE2529C11729004667EC /* CategoryCell.swift in Sources */,
 				AC9DDE3F29C2386C004667EC /* CustomLabel.swift in Sources */,
 				AC30B29F29C4AB4600642E69 /* MainTabBarController.swift in Sources */,
+				AC5F1EFA29CB6D7B005FC3D0 /* Coordinator .swift in Sources */,
 				AC9DDE1F29C11478004667EC /* Urls.swift in Sources */,
 				AC9DDE1929C11151004667EC /* Page1ViewController.swift in Sources */,
 				AC9CE93129C611B200D5A3FA /* User.swift in Sources */,
 				ACB0D9EF29C3B44700814BFE /* BottomView.swift in Sources */,
-				AC9CE93329C6128400D5A3FA /* OptionModel.swift in Sources */,
+				AC5F1F0729CB8677005FC3D0 /* LocalDataManager.swift in Sources */,
+				AC9CE93329C6128400D5A3FA /* CellViewModel.swift in Sources */,
 				AC9DDE4529C25A44004667EC /* AvatarLocationView.swift in Sources */,
 				AC9DDE2229C11560004667EC /* FetchingErrors.swift in Sources */,
+				AC5F1F0929CB9DF0005FC3D0 /* AuthService.swift in Sources */,
 				ACB0D9EB29C3869C00814BFE /* UIColor +.swift in Sources */,
 				AC5F1EEE29C65FEC005FC3D0 /* LoginViewController.swift in Sources */,
 				ACB0D9E229C3575100814BFE /* Page2ViewModel.swift in Sources */,
 				ACB0D9ED29C3A69F00814BFE /* ColorSegmentedControl.swift in Sources */,
 				AC9DDE1D29C11270004667EC /* Models.swift in Sources */,
+				AC5F1EFE29CB72DD005FC3D0 /* AuthCoordinator.swift in Sources */,
 				AC9DDE2E29C11F70004667EC /* UIButton +.swift in Sources */,
 				AC9DDE0429C1110A004667EC /* AppDelegate.swift in Sources */,
 				AC9CE92B29C5EB6400D5A3FA /* ProfileViewController.swift in Sources */,
+				AC5F1F0029CB752B005FC3D0 /* MainCoordinator.swift in Sources */,
 				ACB0D9E829C3663F00814BFE /* DetailInfoCell.swift in Sources */,
 				AC9DDE3329C126AB004667EC /* Formatter.swift in Sources */,
 				ACB0D9E029C3546400814BFE /* Page2ViewController.swift in Sources */,
 				AC9DDE0629C1110A004667EC /* SceneDelegate.swift in Sources */,
+				AC5F1F0429CB7C8C005FC3D0 /* AuthError.swift in Sources */,
 				ACB0D9E429C3591B00814BFE /* Model.swift in Sources */,
 				AC9DDE4129C24A29004667EC /* SearchFieldHeader.swift in Sources */,
 				AC5F1EE629C62131005FC3D0 /* OptionCell.swift in Sources */,
@@ -441,6 +488,7 @@
 				AC9DDE2C29C11F61004667EC /* UILabel +.swift in Sources */,
 				ACB0D9E629C364BD00814BFE /* ImageCell.swift in Sources */,
 				AC5F1EEC29C64E1F005FC3D0 /* CustomTextField.swift in Sources */,
+				AC5F1EFC29CB6E35005FC3D0 /* AppCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

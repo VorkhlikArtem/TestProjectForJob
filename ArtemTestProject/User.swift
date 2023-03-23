@@ -8,10 +8,11 @@
 import Foundation
 import UIKit
 
-struct User {
-    let firstName: String
-    let lastName: String
-    let avatar: UIImage
-    let balance: Int
+struct User: Codable {
+    var firstName: String
+    var lastName: String
+    let email: String
+    var avatar: Data?
+    var balance: Int
 }
 
