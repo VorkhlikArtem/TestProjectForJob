@@ -12,7 +12,6 @@
 		AC5F1EEA29C64A3F005FC3D0 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F1EE929C64A3F005FC3D0 /* SignInViewController.swift */; };
 		AC5F1EEC29C64E1F005FC3D0 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F1EEB29C64E1F005FC3D0 /* CustomTextField.swift */; };
 		AC5F1EEE29C65FEC005FC3D0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F1EED29C65FEB005FC3D0 /* LoginViewController.swift */; };
-		AC5F1EF429C78BDA005FC3D0 /* UIApplication +.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F1EF329C78BD9005FC3D0 /* UIApplication +.swift */; };
 		AC5F1EF629C865B9005FC3D0 /* NotificationCenter +.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F1EF529C865B8005FC3D0 /* NotificationCenter +.swift */; };
 		AC5F1EF829C8DB36005FC3D0 /* UIViewController +.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F1EF729C8DB35005FC3D0 /* UIViewController +.swift */; };
 		AC5F1EFA29CB6D7B005FC3D0 /* Coordinator .swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5F1EF929CB6D79005FC3D0 /* Coordinator .swift */; };
@@ -31,8 +30,6 @@
 		AC9CE93329C6128400D5A3FA /* CellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9CE93229C6128400D5A3FA /* CellViewModel.swift */; };
 		AC9DDE0429C1110A004667EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9DDE0329C1110A004667EC /* AppDelegate.swift */; };
 		AC9DDE0629C1110A004667EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9DDE0529C1110A004667EC /* SceneDelegate.swift */; };
-		AC9DDE0829C1110A004667EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9DDE0729C1110A004667EC /* ViewController.swift */; };
-		AC9DDE0B29C1110A004667EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC9DDE0929C1110A004667EC /* Main.storyboard */; };
 		AC9DDE0D29C11112004667EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC9DDE0C29C11112004667EC /* Assets.xcassets */; };
 		AC9DDE1029C11112004667EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC9DDE0E29C11112004667EC /* LaunchScreen.storyboard */; };
 		AC9DDE1929C11151004667EC /* Page1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9DDE1829C11151004667EC /* Page1ViewController.swift */; };
@@ -76,7 +73,6 @@
 		AC5F1EE929C64A3F005FC3D0 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		AC5F1EEB29C64E1F005FC3D0 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		AC5F1EED29C65FEB005FC3D0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		AC5F1EF329C78BD9005FC3D0 /* UIApplication +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication +.swift"; sourceTree = "<group>"; };
 		AC5F1EF529C865B8005FC3D0 /* NotificationCenter +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter +.swift"; sourceTree = "<group>"; };
 		AC5F1EF729C8DB35005FC3D0 /* UIViewController +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController +.swift"; sourceTree = "<group>"; };
 		AC5F1EF929CB6D79005FC3D0 /* Coordinator .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Coordinator .swift"; sourceTree = "<group>"; };
@@ -96,8 +92,6 @@
 		AC9DDE0029C1110A004667EC /* ArtemTestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArtemTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC9DDE0329C1110A004667EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC9DDE0529C1110A004667EC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AC9DDE0729C1110A004667EC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		AC9DDE0A29C1110A004667EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AC9DDE0C29C11112004667EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC9DDE0F29C11112004667EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC9DDE1129C11112004667EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -156,21 +150,14 @@
 			path = "Cells and Headers";
 			sourceTree = "<group>";
 		};
-		AC5F1EE829C64A1B005FC3D0 /* SignIn */ = {
+		AC5F1EE829C64A1B005FC3D0 /* SignIn & Login */ = {
 			isa = PBXGroup;
 			children = (
 				AC5F1EE929C64A3F005FC3D0 /* SignInViewController.swift */,
+				AC5F1EED29C65FEB005FC3D0 /* LoginViewController.swift */,
 				AC5F1EEB29C64E1F005FC3D0 /* CustomTextField.swift */,
 			);
-			path = SignIn;
-			sourceTree = "<group>";
-		};
-		AC5F1EEF29C65FF3005FC3D0 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				AC5F1EED29C65FEB005FC3D0 /* LoginViewController.swift */,
-			);
-			path = Login;
+			path = "SignIn & Login";
 			sourceTree = "<group>";
 		};
 		AC5F1EF129C76844005FC3D0 /* Custom Views */ = {
@@ -197,6 +184,8 @@
 			children = (
 				AC5F1F0129CB7B70005FC3D0 /* Validator.swift */,
 				AC5F1F0329CB7C8B005FC3D0 /* AuthError.swift */,
+				AC9DDE2129C11560004667EC /* FetchingErrors.swift */,
+				AC9DDE3029C12432004667EC /* WebImageView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -247,18 +236,13 @@
 				AC30B29E29C4AB4400642E69 /* MainTabBarController.swift */,
 				AC9CE93029C611B200D5A3FA /* User.swift */,
 				AC5F1F0A29CBB6F2005FC3D0 /* Coordinators */,
-				AC5F1F0629CB8677005FC3D0 /* LocalDataManager.swift */,
-				AC5F1F0829CB9DF0005FC3D0 /* AuthService.swift */,
-				AC5F1F0529CB7E10005FC3D0 /* Helpers */,
-				AC5F1EE829C64A1B005FC3D0 /* SignIn */,
-				AC5F1EEF29C65FF3005FC3D0 /* Login */,
+				AC5F1EE829C64A1B005FC3D0 /* SignIn & Login */,
 				AC9CE92929C5EB4300D5A3FA /* Profile */,
 				AC9DDE1729C11120004667EC /* Page1 */,
 				ACB0D9DE29C353F800814BFE /* Page2 */,
 				AC9DDE2029C11543004667EC /* Services */,
+				AC5F1F0529CB7E10005FC3D0 /* Helpers */,
 				AC9DDE2F29C11F76004667EC /* Extensions */,
-				AC9DDE0929C1110A004667EC /* Main.storyboard */,
-				AC9DDE0729C1110A004667EC /* ViewController.swift */,
 				AC9DDE4829C274AC004667EC /* Fonts */,
 				AC9DDE0C29C11112004667EC /* Assets.xcassets */,
 				AC9DDE0E29C11112004667EC /* LaunchScreen.storyboard */,
@@ -282,10 +266,10 @@
 		AC9DDE2029C11543004667EC /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				AC5F1F0829CB9DF0005FC3D0 /* AuthService.swift */,
+				AC5F1F0629CB8677005FC3D0 /* LocalDataManager.swift */,
 				AC9DDE1A29C11193004667EC /* CombineNetworkManager.swift */,
-				AC9DDE2129C11560004667EC /* FetchingErrors.swift */,
 				AC9DDE1E29C11478004667EC /* Urls.swift */,
-				AC9DDE3029C12432004667EC /* WebImageView.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -322,7 +306,6 @@
 				AC9DDE5129C27B85004667EC /* UIFont +.swift */,
 				ACB0D9EA29C3869B00814BFE /* UIColor +.swift */,
 				ACB0D9F029C3BF4D00814BFE /* UIView + .swift */,
-				AC5F1EF329C78BD9005FC3D0 /* UIApplication +.swift */,
 				AC5F1EF529C865B8005FC3D0 /* NotificationCenter +.swift */,
 				AC5F1EF729C8DB35005FC3D0 /* UIViewController +.swift */,
 			);
@@ -423,7 +406,6 @@
 				AC9DDE0D29C11112004667EC /* Assets.xcassets in Resources */,
 				AC9DDE4C29C27526004667EC /* Montserrat-Regular.ttf in Resources */,
 				AC9DDE4E29C27584004667EC /* Montserrat-Medium.ttf in Resources */,
-				AC9DDE0B29C1110A004667EC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,7 +429,6 @@
 				AC9DDE3B29C133E5004667EC /* Page1ViewModel.swift in Sources */,
 				AC9CE92829C5051900D5A3FA /* LikeAndShareBlock.swift in Sources */,
 				AC9DDE3129C12432004667EC /* WebImageView.swift in Sources */,
-				AC9DDE0829C1110A004667EC /* ViewController.swift in Sources */,
 				AC9DDE4329C24EC3004667EC /* SearchTextField.swift in Sources */,
 				AC9DDE2529C11729004667EC /* CategoryCell.swift in Sources */,
 				AC9DDE3F29C2386C004667EC /* CustomLabel.swift in Sources */,
@@ -482,7 +463,6 @@
 				AC5F1EE629C62131005FC3D0 /* OptionCell.swift in Sources */,
 				AC5F1EF829C8DB36005FC3D0 /* UIViewController +.swift in Sources */,
 				AC9DDE3929C1336E004667EC /* Page1Model.swift in Sources */,
-				AC5F1EF429C78BDA005FC3D0 /* UIApplication +.swift in Sources */,
 				AC9CE92F29C5F56D00D5A3FA /* HeaderTableView.swift in Sources */,
 				AC9CE92D29C5F26900D5A3FA /* ProfileViewModel.swift in Sources */,
 				AC9DDE2C29C11F61004667EC /* UILabel +.swift in Sources */,
@@ -495,14 +475,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		AC9DDE0929C1110A004667EC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AC9DDE0A29C1110A004667EC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		AC9DDE0E29C11112004667EC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -641,7 +613,6 @@
 				INFOPLIST_FILE = ArtemTestProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -668,7 +639,6 @@
 				INFOPLIST_FILE = ArtemTestProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

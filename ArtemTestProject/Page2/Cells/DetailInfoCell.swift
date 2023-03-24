@@ -22,15 +22,9 @@ class DetailInfoCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .white
         layer.cornerRadius = 15
         nameLabel.numberOfLines = 2
         descriptionLabel.numberOfLines = 0
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        layer.masksToBounds = false     
     }
     
 
@@ -81,22 +75,3 @@ class DetailInfoCell: UICollectionViewCell {
     }
 }
 
-//MARK: - SwiftUI
-import SwiftUI
-struct DetailProvider1: PreviewProvider {
-    static var previews: some View {
-        ContainerView().edgesIgnoringSafeArea(.all)
-    }
-    struct ContainerView: UIViewControllerRepresentable {
-        
-        let viewController = UINavigationController(rootViewController: DetailViewController())
-        
-   
-        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-        }
-        
-        func makeUIViewController(context: Context) -> some UIViewController {
-            return viewController
-        }
-    }
-}

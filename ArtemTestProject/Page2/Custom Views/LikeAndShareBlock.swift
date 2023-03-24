@@ -11,9 +11,10 @@ class LikeShareStack: UIStackView {
     
     let likeButton: UIButton = {
         let button = UIButton.init(type: .system)
-        var config = UIButton.Configuration.plain()
         
+        var config = UIButton.Configuration.filled()
         config.baseForegroundColor = #colorLiteral(red: 0.3298887014, green: 0.3344107866, blue: 0.5370991826, alpha: 1)
+        config.baseBackgroundColor = #colorLiteral(red: 0.8972175121, green: 0.9143759608, blue: 0.9387496114, alpha: 1)
         config.contentInsets = .init(top: 10, leading: 8, bottom: 8, trailing: 8)
         config.image = UIImage(named: "heart")
         button.configuration = config
@@ -22,9 +23,10 @@ class LikeShareStack: UIStackView {
     
     let shareButton: UIButton = {
         let button = UIButton.init(type: .system)
-        var config = UIButton.Configuration.plain()
         
+        var config = UIButton.Configuration.filled()
         config.baseForegroundColor = #colorLiteral(red: 0.3298887014, green: 0.3344107866, blue: 0.5370991826, alpha: 1)
+        config.baseBackgroundColor = #colorLiteral(red: 0.8972175121, green: 0.9143759608, blue: 0.9387496114, alpha: 1)
         config.contentInsets = .init(top: 8, leading: 8, bottom: 10, trailing: 8)
         config.image = UIImage(named: "share")
         button.configuration = config

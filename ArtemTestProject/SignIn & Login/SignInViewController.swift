@@ -15,7 +15,7 @@ class SignInViewController: UIViewController {
     var subscriptions = Set<AnyCancellable>()
     
     let titleLabel = UILabel(text: "Sign In", font: .montserratMedium(30), textColor: #colorLiteral(red: 0.08607355505, green: 0.09469824284, blue: 0.1493803263, alpha: 1))
-    let errorLabel = UILabel(font: .montserratBold(15), textColor: .red)
+    let errorLabel = UILabel(font: .montserratMedium(12), textColor: .red)
     let firstNameTextField = CustomTextField(placeholder: "First name")
     let lastNameTextField = CustomTextField(placeholder: "Last name")
     let emailTextField = CustomTextField(placeholder: "Email")
@@ -75,11 +75,8 @@ class SignInViewController: UIViewController {
             case .failure(let error) :
                 guard let error = error as? AuthError else {return}
                 self.errorLabel.text = error.errorDescription
-
             }
-        } receiveValue: { user in
-            print(user)
-           // self.signinButtonTapped.send()
+        } receiveValue: { _ in
         }.store(in: &subscriptions)
     }
     
@@ -106,6 +103,7 @@ extension SignInViewController {
         vStack.setCustomSpacing(50, after: hStack)
         
         errorLabel.translatesAutoresizingMaskIntoConstraints = false
+        errorLabel.numberOfLines = 2
         vStack.addSubview(errorLabel)
         
         vStack.translatesAutoresizingMaskIntoConstraints = false
@@ -115,7 +113,7 @@ extension SignInViewController {
             vStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             vStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
             
-            errorLabel.leadingAnchor.constraint(equalTo: firstNameTextField.leadingAnchor),
+            errorLabel.leadingAnchor.constraint(equalTo: firstNameTextField.leadingAnchor, constant: 10),
             errorLabel.bottomAnchor.constraint(equalTo: firstNameTextField.topAnchor, constant: -10)
         ])
         

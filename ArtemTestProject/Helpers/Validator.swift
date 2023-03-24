@@ -20,4 +20,8 @@ class Validator {
         return strings.allSatisfy{ !($0 ?? "").isEmpty }
     }
     
+    static func suggestEmail(wrongEmail: String) -> String {
+        return String(wrongEmail.prefix{ $0 != "@" } ) + "@mail.ru"
+    }
+    
 }

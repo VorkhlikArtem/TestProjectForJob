@@ -138,21 +138,3 @@ class BottomView: UIView {
 
 }
 
-//MARK: - SwiftUI
-import SwiftUI
-struct DetailProvider2: PreviewProvider {
-    static var previews: some View {
-        ContainerView().edgesIgnoringSafeArea(.all)
-    }
-    struct ContainerView: UIViewControllerRepresentable {
-        
-        let viewController = UINavigationController(rootViewController: DetailViewController())
-        
-        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-        }
-        
-        func makeUIViewController(context: Context) -> some UIViewController {
-            return viewController
-        }
-    }
-}

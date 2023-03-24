@@ -87,21 +87,4 @@ class LatestCell: UICollectionViewCell {
     }
 }
 
-//MARK: - SwiftUI
-import SwiftUI
-struct LatestProvider: PreviewProvider {
-    static var previews: some View {
-        ContainerView().edgesIgnoringSafeArea(.all)
-    }
-    struct ContainerView: UIViewControllerRepresentable {
-        
-        let viewController = MainViewController()
-        
-        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-        }
-        
-        func makeUIViewController(context: Context) -> some UIViewController {
-            return viewController
-        }
-    }
-}
+

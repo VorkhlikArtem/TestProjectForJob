@@ -17,24 +17,19 @@ class MainViewController: UIViewController {
     
     var dataSource: DataSourceType!
     var viewModel: MainViewModel!
-    var cancellable: AnyCancellable?
+    var cancellables = Set<AnyCancellable>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         viewModel = MainViewModel()
-        cancellable = viewModel.onUpdate.sink { [weak self] completion in
-            switch completion {
-            case .finished: break
-            case .failure(_):
-                self?.refreshControl.endRefreshing()
-                }
-            } receiveValue: { [weak self] in
+        viewModel.onUpdate
+            .sink { [weak self] in
                 self?.refreshControl.endRefreshing()
                 self?.reloadData()
-        }
+            }.store(in: &cancellables)
+
         viewModel.getData()
-        self.reloadData()
+        reloadData()
         
         setupNavigationBar()
         setupCollectionView()
@@ -59,13 +54,15 @@ class MainViewController: UIViewController {
     
     // MARK: -  NavigationBar & CollectionView setups
     private func setupNavigationBar() {
-        navigationItem.title = "Trade by bata"
+        let label = UILabel(font: .montserratBold(20), textColor: .black)
+        label.attributedText = viewModel.title
+        navigationItem.titleView = label
         
         let left = UIBarButtonItem(image: UIImage(named: "menu"), style: .plain, target: nil, action: nil)
         left.tintColor = .black
         navigationItem.leftBarButtonItem = left
         
-        let right = AvatarLocationView(UIImage(named: "menu") )
+        let right = AvatarLocationView( viewModel.avatarImage )
         right.tintColor = #colorLiteral(red: 0.00884380471, green: 0.02381574176, blue: 0.1850150228, alpha: 1)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: right)
     }
@@ -91,16 +88,16 @@ class MainViewController: UIViewController {
         var snapShot = NSDiffableDataSourceSnapshot<MainViewModel.Section, MainViewModel.Item>()
         snapShot.appendSections(MainViewModel.Section.allCases)
         
-        let selectCategoryItems = viewModel.model.selectCategoryImageNames.map {MainViewModel.Item.selectCategoryItem(category: $0) }
+        let selectCategoryItems = viewModel.selectCategoryItems
         snapShot.appendItems(selectCategoryItems, toSection: .selectCategorySection)
         
-        let latestItems = viewModel.model.latestItems.map {MainViewModel.Item.latestItem(latestItem: $0) }
+        let latestItems = viewModel.latestItems
         snapShot.appendItems(latestItems, toSection: .latestSection)
 
-        let flashSaleItems = viewModel.model.flashSaleItems.map {MainViewModel.Item.flashSaleItem(flashSaleItem: $0) }
+        let flashSaleItems = viewModel.flashSaleItems
         snapShot.appendItems(flashSaleItems, toSection: .flashSaleSection)
         
-        let brandsItems = viewModel.model.brandsItems.map{MainViewModel.Item.brandsItem(brandsItem: $0) }
+        let brandsItems = viewModel.brandsItems
         snapShot.appendItems(brandsItems, toSection: .brandsSection)
         
         dataSource?.apply(snapShot, animatingDifferences: true)
@@ -271,7 +268,7 @@ extension MainViewController: UICollectionViewDelegate {
     }
  
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        NotificationCenter.default.post(name: .hideFilterTables, object: nil)
+        NotificationCenter.default.post(name: .hideSearchingList, object: nil)
     }
     
 }

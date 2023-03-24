@@ -9,7 +9,7 @@ import Foundation
 
 enum AuthError {
     case notFilled
-    case invalidEmail
+    case invalidEmail(suggestedEmail: String)
     case userAlreadyExists
     case noSuchUser
     case unknownError
@@ -20,8 +20,8 @@ extension AuthError: LocalizedError {
         switch self {
         case .notFilled:
             return NSLocalizedString("Fill all fields", comment: "")
-        case .invalidEmail:
-            return NSLocalizedString("Invalid Email", comment: "")
+        case .invalidEmail(let suggestedEmail):
+            return NSLocalizedString("Invalid Email \nTry this format:  \(suggestedEmail)", comment: "")
         case .userAlreadyExists:
             return NSLocalizedString("This email has been already registered", comment: "")
         case .noSuchUser:

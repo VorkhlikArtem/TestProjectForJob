@@ -9,36 +9,30 @@ import UIKit
 import Combine
 
 class DetailViewController: UIViewController {
-    var collectionView: UICollectionView!
-    let bottomView = BottomView()
-    let likeShareBlock = LikeShareStack()
+    private var collectionView: UICollectionView!
+    private let bottomView = BottomView()
+    private let likeShareBlock = LikeShareStack()
     
-    var dataSource: UICollectionViewDiffableDataSource<DetailCVViewModel.Section, DetailCVViewModel.Item>?
-    let networkManager = CombineNetworkManager()
-    var model: DetailModel!
+    private var dataSource: UICollectionViewDiffableDataSource<DetailViewModel.Section, DetailViewModel.Item>?
+    var viewModel: DetailViewModel!
     
     var cancellable: AnyCancellable?
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = DetailViewModel()
         setupNavigationBar()
+        setupCollectionView()
+        createDataSource()
+        setupLikeShareBlock()
         
-        cancellable = networkManager.getDetails()
-            .sink { completion in
-                switch completion {
-                case .finished: break
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
-            } receiveValue: { [weak self] productDetailModel in
+        cancellable = viewModel.onUpdate
+            .sink { [weak self] in
                 guard let self = self else {return}
-                self.model = productDetailModel
-                self.setupCollectionView()
-                self.createDataSource()
                 self.reloadData()
                 self.setupButtomView()
-                self.setupLikeShareBlock()
             }
+        viewModel.viewDidLoad()
     }
     
     // MARK: - Setup Collection View and Navigation Bar
@@ -63,40 +57,36 @@ class DetailViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    // MARK: - Setup Bottom View
-    func setupButtomView() {
-        let tabBarHeight = tabBarController?.tabBar.frame.height ?? 0
-        view.addSubviewAtTheBottom(subview: bottomView, height: 80 + tabBarHeight)
-        bottomView.configure(with: model.price, bottomOffset: tabBarHeight)
+    // MARK: - Reload Data
+    private func reloadData() {
+        var snapShot = NSDiffableDataSourceSnapshot<DetailViewModel.Section, DetailViewModel.Item>()
+        snapShot.appendSections([.largeImages, .smallImages, .detailInfo])
+    
+        let largeImageItems = viewModel.largeImageItems
+        let smallImageItems = viewModel.smallImageItems
+        let detailItem = viewModel.detailItem
+        
+        snapShot.appendItems(largeImageItems, toSection: .largeImages)
+        snapShot.appendItems(smallImageItems, toSection: .smallImages)
+        snapShot.appendItems([detailItem], toSection: .detailInfo)
+   
+        dataSource?.apply(snapShot, animatingDifferences: true)
     }
     
-    func setupLikeShareBlock() {
+    // MARK: - Setup Bottom View and LikeShare Buttons
+    private func setupButtomView() {
+        let tabBarHeight = tabBarController?.tabBar.frame.height ?? 0
+        view.addSubviewAtTheBottom(subview: bottomView, height: 80 + tabBarHeight)
+        bottomView.configure(with: viewModel.price, bottomOffset: tabBarHeight)
+    }
+    
+    private func setupLikeShareBlock() {
         likeShareBlock.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(likeShareBlock)
         NSLayoutConstraint.activate([
             likeShareBlock.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
             likeShareBlock.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
         ])
-    }
-    
-    // MARK: - Reload Data
-    private func reloadData() {
-        var snapShot = NSDiffableDataSourceSnapshot<DetailCVViewModel.Section, DetailCVViewModel.Item>()
-        snapShot.appendSections([.largeImages, .smallImages, .detailInfo])
-        
-        let largeImages = model.imageUrls.map{ImageModel(url: $0, id: 1) }
-        let smallImages = model.imageUrls.map{ImageModel(url: $0, id: 2) }
-        let largeImageItems = largeImages.map { DetailCVViewModel.Item.image(url: $0) }
-        let smallImageItems = smallImages.map { DetailCVViewModel.Item.image(url: $0) }
-        
-        snapShot.appendItems(largeImageItems, toSection: .largeImages)
-        snapShot.appendItems(smallImageItems, toSection: .smallImages)
-
-        let detailInfo = DetailInfoModel(from: model)
-        let detailItem = DetailCVViewModel.Item.details(details: detailInfo)
-        snapShot.appendItems([detailItem], toSection: .detailInfo)
-   
-        dataSource?.apply(snapShot, animatingDifferences: true)
     }
 }
 
@@ -117,7 +107,6 @@ extension DetailViewController {
                 cell.configure(with: details)
                 return cell
             }
-            
         })
     }
 }
@@ -149,26 +138,11 @@ extension DetailViewController {
        
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .groupPagingCentered
-        
-        
-        section.visibleItemsInvalidationHandler = { (items, offset, environment) in
-            
-            guard let itemWidth = items.last?.bounds.width else { return }
-            let insets = (environment.container.contentSize.width - itemWidth)
-            let page = Int(offset.x / (itemWidth + insets))
-          //  print(items)
-            if let ind = self.dataSource?.snapshot().indexOfSection(.smallImages) {
-                
-              //  self.collectionView.scrollToItem(at: IndexPath(row: items.last!.indexPath.row, section: ind), at: .centeredHorizontally, animated: true)
-            }
-            
-            
-        }
 
         return section
     }
     
-    func createSmallImagesSectionLayout() -> NSCollectionLayoutSection? {
+    private func createSmallImagesSectionLayout() -> NSCollectionLayoutSection? {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
 
@@ -189,14 +163,14 @@ extension DetailViewController {
                 item.transform = CGAffineTransform(scaleX: scale, y: scale)
             }
         }
+        
         return section
     }
     
-    func createDetailSectionLayout() -> NSCollectionLayoutSection? {
+    private func createDetailSectionLayout() -> NSCollectionLayoutSection? {
         
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(220) )
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-//        item.contentInsets = .init(top: 0, leading: 14, bottom: 0, trailing: 14)
         
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(220) )
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
@@ -205,52 +179,18 @@ extension DetailViewController {
         section.contentInsets = .init(top: 0, leading: 14, bottom: 100, trailing: 14)
         return section
     }
-    
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-        coordinator.animate(alongsideTransition: { context in
-            self.collectionView.collectionViewLayout.invalidateLayout()
-        }, completion: nil)
-    }
 
 }
 // MARK: -  UICollectionViewDelegate
 extension DetailViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         guard let section = dataSource?.sectionIdentifier(for: indexPath.section) else {return}
         switch section {
         case .smallImages:
-            print("smallImages tapped", indexPath )
-            collectionView.scrollToItem(at: IndexPath(item: indexPath.item, section: 1), at: .centeredHorizontally, animated: true)
             collectionView.scrollToItem(at: IndexPath(item: indexPath.item, section: 0), at: .centeredHorizontally, animated: true)
-            //dataSource?.snapshot(for: .smallImages).visibleItems.
-        case .largeImages:
-            print("largeImages tapped", indexPath)
-        case .detailInfo:
-            print("detailInfo tapped")
-        }
-    }
-    
-}
-
-
-//MARK: - SwiftUI
-import SwiftUI
-struct DetailProvider: PreviewProvider {
-    static var previews: some View {
-        ContainerView().edgesIgnoringSafeArea(.all)
-    }
-    struct ContainerView: UIViewControllerRepresentable {
-        
-        let viewController = UINavigationController(rootViewController: DetailViewController())
-        
-   
-        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-        }
-        
-        func makeUIViewController(context: Context) -> some UIViewController {
-            return viewController
+        default: return
         }
     }
 }
+
+

@@ -46,7 +46,7 @@ class ProfileViewController: UIViewController {
         let back = UIBarButtonItem(image: UIImage(named: "backArrow"), style: .done, target: nil, action: nil)
         back.tintColor = .black
         navigationItem.leftBarButtonItem = back
-        let title = UILabel(text: "Profile", font: .montserratBold(20), textColor: .black)
+        let title = UILabel(text: "Profile", font: .montserratMedium(15), textColor: .black)
         navigationItem.titleView = title
     }
     
@@ -74,8 +74,6 @@ extension ProfileViewController: UITableViewDataSource {
         cell.configure(option: option)
         return cell
     }
-    
-
 }
 
 extension ProfileViewController: UITableViewDelegate {
@@ -89,8 +87,6 @@ extension ProfileViewController: UITableViewDelegate {
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
-    
 }
 
 

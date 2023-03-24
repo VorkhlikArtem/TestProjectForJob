@@ -19,7 +19,8 @@ class AuthService {
                 return promise(.failure(AuthError.notFilled))
             }
             guard Validator.isValidEmail(email!) else {
-                return promise(.failure(AuthError.invalidEmail))
+                let suggestedEmail = Validator.suggestEmail(wrongEmail: email!)
+                return promise(.failure(AuthError.invalidEmail(suggestedEmail: suggestedEmail) ))
             }
             guard self.dataManager.logInUserChecking(email: email!) else {
                 return promise(.failure(AuthError.noSuchUser))
@@ -28,8 +29,6 @@ class AuthService {
             return promise(.success(self.dataManager.currentUser))
             
         }.eraseToAnyPublisher()
-       
-        
     }
     
     func signin(firstName: String?, lastName: String?, email: String?) -> AnyPublisher<User?, Error> {
@@ -40,7 +39,8 @@ class AuthService {
                 return promise(.failure(AuthError.notFilled))
             }
             guard Validator.isValidEmail(email!) else {
-                return promise(.failure(AuthError.invalidEmail))
+                let suggestedEmail = Validator.suggestEmail(wrongEmail: email!)
+                return promise(.failure(AuthError.invalidEmail(suggestedEmail: suggestedEmail) ))
             }
             
             guard self.dataManager.isEmailUnique(email: email!) else {

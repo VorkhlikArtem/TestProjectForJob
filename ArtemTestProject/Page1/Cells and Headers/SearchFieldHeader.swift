@@ -58,15 +58,12 @@ class SearchFieldHeader: UICollectionReusableView {
     
     
     @objc func textChanged(textField: UITextField) {
-//        guard !(textField.text ?? "").isEmpty else {
-//            self.promptTable.frame.size.height = 0; return
-//        }
         changedSearchTextSubject.send(textField.text ?? "")
     }
     
     // MARK: - setup Table View and constraints
     func setupHelperTableView() {
-        NotificationCenter.default.publisher(for: .hideFilterTables).sink { [weak self] _ in
+        NotificationCenter.default.publisher(for: .hideSearchingList).sink { [weak self] _ in
             self?.searchField.resignFirstResponder()
             self?.promptTable.removeFromSuperview()
         }.store(in: &cancellables)

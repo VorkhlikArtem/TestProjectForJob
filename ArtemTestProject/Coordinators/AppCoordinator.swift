@@ -10,8 +10,6 @@ import Combine
 
 class AppCoordinator: Coordinator {
     
-//    var currentUserSubject = CurrentValueSubject<User?, Never>(nil)
-    
     var rootVC: UIViewController = UIViewController()
     let window: UIWindow?
     var childCoordinators = [Coordinator]()
@@ -24,7 +22,6 @@ class AppCoordinator: Coordinator {
     
     func start() {
         let currentUserId = localDataManager.currentUserIdPublisher
-//        currentUserSubject.send(currentUser)
         
         currentUserId.sink { [weak self] currentUserId in
             if currentUserId != nil {

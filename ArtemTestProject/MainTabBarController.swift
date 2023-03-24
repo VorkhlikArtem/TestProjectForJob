@@ -10,20 +10,24 @@ import UIKit
 class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBar.tintColor = .black
         tabBar.backgroundColor = .white
         setupTabBar()
         setTabBarAppearance()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setTabBarAppearance()
+    }
+    
     private func setupTabBar() {
         let mainNC = generateNavigationController(rootViewController: MainViewController(), image: "house")
-        let favoriteNC = generateNavigationController(rootViewController: DetailViewController(), image: "heart")
-        let cartNC = generateNavigationController(rootViewController: SignInViewController(), image: "cart")
-        let messagesNC = generateNavigationController(rootViewController: LoginViewController(), image: "messages")
+        let favoriteNC = generateNavigationController(rootViewController: UIViewController(), image: "heart")
+        let cartNC = generateNavigationController(rootViewController: UIViewController(), image: "cart")
+        let messagesNC = generateNavigationController(rootViewController: UIViewController(), image: "messages")
         let profileNC = generateNavigationController(rootViewController: ProfileViewController(), image: "profile")
         
-        viewControllers = [mainNC,  messagesNC, cartNC,   profileNC,  favoriteNC  ]
+        viewControllers = [mainNC,  messagesNC, cartNC, favoriteNC,  profileNC  ]
     }
     
     
@@ -60,7 +64,8 @@ class MainTabBarController: UITabBarController {
         
         roundLayer.fillColor = UIColor.white.cgColor
         
-        tabBar.tintColor = #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)
+        tabBar.tintColor = .blue
         tabBar.unselectedItemTintColor = #colorLiteral(red: 0.5646609664, green: 0.5647310615, blue: 0.5646371245, alpha: 1)
     }
+    
 }

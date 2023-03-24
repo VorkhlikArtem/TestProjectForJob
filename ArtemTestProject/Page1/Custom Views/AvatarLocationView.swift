@@ -14,7 +14,7 @@ class AvatarLocationView: UIStackView {
         var config = UIButton.Configuration.plain()
         
         var container = AttributeContainer()
-        container.font = .systemFont(ofSize: 14)
+        container.font = .systemFont(ofSize: 10)
         container.foregroundColor = #colorLiteral(red: 0.3568329215, green: 0.3568795323, blue: 0.3568170071, alpha: 1)
         
         config.attributedTitle = AttributedString("Location", attributes: container)
@@ -30,6 +30,7 @@ class AvatarLocationView: UIStackView {
         avatarImageView.image = image ?? UIImage(systemName: "person.crop.circle.fill")
         axis = .vertical
         alignment = .center
+        spacing = 5
         
         addArrangedSubview(avatarImageView)
         addArrangedSubview(locationButton)
@@ -37,7 +38,6 @@ class AvatarLocationView: UIStackView {
         NSLayoutConstraint.activate([
             avatarImageView.heightAnchor.constraint(equalToConstant: 30),
             avatarImageView.widthAnchor.constraint(equalToConstant: 30),
-
         ])
     }
     

@@ -10,25 +10,48 @@ import Combine
 
 class MainViewModel {
     
-    var model = MainModel()
-    let dataFetcher = CombineNetworkManager()
-    let localDataManager: LocalDataManager
-    var user: User
+    private let dataFetcher = CombineNetworkManager()
+    private let localDataManager: LocalDataManager
+    private var model = MainModel()
+    private var user: User
     
-    var onUpdate = PassthroughSubject<Void, Error>()
+    var onUpdate = PassthroughSubject<Void, Never>()
     var showWords = PassthroughSubject<[String], Error>()
-    var cancellable: AnyCancellable?
-    
-    init() {
-        localDataManager = LocalDataManager.shared
-        user = localDataManager.currentUser!
-    }
+    private var cancellable: AnyCancellable?
     
     var avatarImage: UIImage {
         guard let data = user.avatar, let image = UIImage(data: data) else {
             return UIImage(named: "profile")!
         }
         return image
+    }
+    
+    let title: NSMutableAttributedString = {
+        var str = NSMutableAttributedString.init(string: "Trade by bata")
+        let attr: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.blue]
+        str.addAttributes(attr, range: NSRange.init(location: 9, length: 4)  )
+        return str
+    }()
+    
+    var selectCategoryItems: [Item] {
+        model.selectCategoryImageNames.map { MainViewModel.Item.selectCategoryItem(category: $0) }
+    }
+    
+    var latestItems: [Item] {
+        model.latestItems.map { MainViewModel.Item.latestItem(latestItem: $0) }
+    }
+    
+    var flashSaleItems: [Item] {
+        model.flashSaleItems.map { MainViewModel.Item.flashSaleItem(flashSaleItem: $0) }
+    }
+    
+    var brandsItems: [Item]  {
+        model.brandsItems.map{ MainViewModel.Item.brandsItem(brandsItem: $0) }
+    }
+
+    init() {
+        localDataManager = LocalDataManager.shared
+        user = localDataManager.currentUser!
     }
     
     func getData() {
@@ -39,7 +62,7 @@ class MainViewModel {
                 switch completion {
                 case .finished: break
                 case .failure(let error):
-                    self?.onUpdate.send(completion: .failure(error))
+                    self?.onUpdate.send()
                     print(error.localizedDescription)
                 }
             } receiveValue: { [weak self] (latest, flash) in

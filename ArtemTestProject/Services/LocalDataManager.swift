@@ -19,7 +19,6 @@ extension UserDefaults {
         }
         set {
             set(newValue, forKey: LocalKeys.currentUser)
-
             }
     }
 }
@@ -30,21 +29,9 @@ class LocalDataManager {
     
     let defaults = UserDefaults.standard
     
-    
-   // private lazy var currentUserSubject = CurrentValueSubject<String?, Never>(currentUser)
     var currentUserIdPublisher: AnyPublisher<String?, Never> {
         defaults.publisher(for: \.currentUserId).eraseToAnyPublisher()
     }
-    
-//    var currentUser: String? {
-//        get {
-//            defaults.string(forKey: LocalKeys.currentUser)
-//        }
-//        set {
-//            defaults.set(newValue, forKey: LocalKeys.currentUser)
-//
-//            }
-//    }
     
     var currentUser: User? {
         if let id = defaults.currentUserId, let data = defaults.data(forKey: id) {
@@ -58,7 +45,6 @@ class LocalDataManager {
         defaults.set(data, forKey: user.email)
     }
 
-    
     
     // MARK: - Methods For Login
     func logInUserChecking(email: String) -> Bool {

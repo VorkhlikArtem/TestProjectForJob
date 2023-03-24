@@ -14,7 +14,6 @@ class AuthCoordinator: Coordinator {
     var subscriptions = Set<AnyCancellable>()
     let localDataManager = LocalDataManager.shared
     
-    
     func start() {
         let signInVC = SignInViewController()
         signInVC.alreadyHaveButtonTapped.sink { [weak self] in
@@ -27,6 +26,10 @@ class AuthCoordinator: Coordinator {
     
     private func createLogin() {
         let loginVC = LoginViewController()
+        loginVC.backButtonTapped.sink { [weak self] in
+            (self?.rootVC as? UINavigationController)?.popViewController(animated: true)
+        }.store(in: &subscriptions)
+        
         (rootVC as? UINavigationController)?.pushViewController(loginVC, animated: true)
     }
     
