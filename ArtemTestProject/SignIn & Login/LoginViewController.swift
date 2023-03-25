@@ -22,6 +22,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .background
+        emailTextField.keyboardType = .emailAddress
         loginButton.layer.cornerRadius = 10
         setupConstraints()
         hideKeyboardAfterTapping()
@@ -75,9 +76,9 @@ extension LoginViewController {
         view.addSubview(vStack)
         vStack.addSubview(errorLabel)
         NSLayoutConstraint.activate([
-            vStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
-            vStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-            vStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            vStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
+            vStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            vStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             
             errorLabel.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor, constant: 10),
             errorLabel.bottomAnchor.constraint(equalTo: emailTextField.topAnchor, constant: -10)

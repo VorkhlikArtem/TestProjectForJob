@@ -11,12 +11,7 @@ class ProfileViewModel {
     let localDataManager: LocalDataManager
     
     var user: User
-    
-    init() {
-        localDataManager = LocalDataManager.shared
-        self.user = localDataManager.currentUser!
-    }
-    
+        
     var name: String { user.firstName + " " + user.lastName}
     var balance: String {"$ \(user.balance)"}
     var image: UIImage {
@@ -24,6 +19,11 @@ class ProfileViewModel {
             return UIImage(named: "profile")!
         }
         return image
+    }
+    
+    init() {
+        localDataManager = LocalDataManager.shared
+        self.user = localDataManager.currentUser!
     }
     
     func savePhoto(_ image: UIImage) {

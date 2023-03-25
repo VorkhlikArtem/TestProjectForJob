@@ -10,12 +10,13 @@ import UIKit
 class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBar.backgroundColor = .white
         setupTabBar()
-        setTabBarAppearance()
+        tabBar.backgroundImage = UIImage()
+        tabBar.backgroundColor = .clear
+        tabBar.shadowImage = UIImage()
     }
     
-    override func viewDidLayoutSubviews() {
+    override func  viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setTabBarAppearance()
     }
@@ -42,9 +43,9 @@ class MainTabBarController: UITabBarController {
         let positionOnY: CGFloat = 10
         let width = tabBar.bounds.width - positionOnX * 2
         let height = tabBar.bounds.height + positionOnY * 2
-        
+
         let roundLayer = CAShapeLayer()
-        
+
         let bezierPath = UIBezierPath(
             roundedRect: CGRect(
                 x: positionOnX,
@@ -54,18 +55,19 @@ class MainTabBarController: UITabBarController {
             ),
             cornerRadius: height / 2
         )
-       
+
         roundLayer.path = bezierPath.cgPath
-        
+
         tabBar.layer.insertSublayer(roundLayer, at: 0)
-        
+
         tabBar.itemWidth = width / 5
         tabBar.itemPositioning = .centered
-        
+
         roundLayer.fillColor = UIColor.white.cgColor
-        
+
         tabBar.tintColor = .blue
         tabBar.unselectedItemTintColor = #colorLiteral(red: 0.5646609664, green: 0.5647310615, blue: 0.5646371245, alpha: 1)
     }
     
+
 }

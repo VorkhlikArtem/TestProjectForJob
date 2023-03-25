@@ -34,11 +34,13 @@ class LocalDataManager {
     }
     
     var currentUser: User? {
+        
         if let id = defaults.currentUserId, let data = defaults.data(forKey: id) {
             return try? JSONDecoder().decode(User.self, from: data)
         }
         return nil
     }
+    
     
     func saveCurrentUser(_ user: User) {
         guard let data = try? JSONEncoder().encode(user) else {return }
@@ -74,6 +76,10 @@ class LocalDataManager {
         defaults.currentUserId = nil
     }
     
-    private init() {}
+    private init() {
+        defaults.didChangeValue(forKey: defaults.currentUserId!)
+        
+        
+    }
     
 }

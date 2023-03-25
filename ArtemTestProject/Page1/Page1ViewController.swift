@@ -12,6 +12,7 @@ class MainViewController: UIViewController {
     
     var collectionView: UICollectionView!
     let refreshControl = UIRefreshControl()
+    var avatarView: AvatarLocationView!
    
     typealias DataSourceType = UICollectionViewDiffableDataSource<MainViewModel.Section, MainViewModel.Item>
     
@@ -41,6 +42,11 @@ class MainViewController: UIViewController {
         collectionView.delegate = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setAvatar()
+    }
+    
     
     // MARK: - Setup Refresh Control
     private func setupRefreshControl() {
@@ -62,9 +68,14 @@ class MainViewController: UIViewController {
         left.tintColor = .black
         navigationItem.leftBarButtonItem = left
         
-        let right = AvatarLocationView( viewModel.avatarImage )
-        right.tintColor = #colorLiteral(red: 0.00884380471, green: 0.02381574176, blue: 0.1850150228, alpha: 1)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: right)
+        avatarView = AvatarLocationView()
+        setAvatar()
+        avatarView.tintColor = #colorLiteral(red: 0.00884380471, green: 0.02381574176, blue: 0.1850150228, alpha: 1)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: avatarView)
+    }
+    
+    private func setAvatar() {
+        avatarView.configue(with: viewModel.avatarImage)
     }
     
     private func setupCollectionView() {
@@ -150,7 +161,8 @@ extension MainViewController {
                     searchHeader.textFieldTappedPublisher.sink { [weak self] tableView in
                         guard let self = self else {return}
                         self.view.addSubview(tableView)
-                        tableView.frame = CGRect(x: 60, y: 110, width: self.view.frame.width - 120, height: 0)
+                        let topBarHeight = (self.navigationController?.navigationBar.frame.height ?? 0) + (self.view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0)
+                        tableView.frame = CGRect(x: 60, y: 55 + topBarHeight, width: self.view.frame.width - 120, height: 0)
                     }.store(in: &searchHeader.cancellables)
                     
                     return searchHeader

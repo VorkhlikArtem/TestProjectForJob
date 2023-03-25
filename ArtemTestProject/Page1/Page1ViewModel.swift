@@ -13,7 +13,7 @@ class MainViewModel {
     private let dataFetcher = CombineNetworkManager()
     private let localDataManager: LocalDataManager
     private var model = MainModel()
-    private var user: User
+    private var user: User { localDataManager.currentUser! }
     
     var onUpdate = PassthroughSubject<Void, Never>()
     var showWords = PassthroughSubject<[String], Error>()
@@ -51,7 +51,7 @@ class MainViewModel {
 
     init() {
         localDataManager = LocalDataManager.shared
-        user = localDataManager.currentUser!
+//        user = localDataManager.currentUser!
     }
     
     func getData() {

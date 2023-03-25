@@ -40,6 +40,7 @@ class HeaderTableView: UIView {
         super.init(frame: CGRect(x: 0, y: 0, width: 300, height: 180))
         setupConstaints()
         avatarImageView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        avatarImageView.contentMode = .scaleAspectFill
         avatarImageView.image = image
         nameLabel.text = name
         changePhotoButton.addTarget(self, action: #selector(changePhotoTapped), for: .touchUpInside)

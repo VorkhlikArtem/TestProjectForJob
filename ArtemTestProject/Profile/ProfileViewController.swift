@@ -28,6 +28,7 @@ class ProfileViewController: UIViewController {
         setupTableView()
         setConstraints()
         setupNavigationBar()
+        
     }
     
     // MARK: - setup Table View and Navigation Bar

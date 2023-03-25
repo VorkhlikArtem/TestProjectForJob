@@ -57,6 +57,7 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .background
+        emailTextField.keyboardType = .emailAddress
         signInButton.layer.cornerRadius = 10
         setupConstraints()
         hideKeyboardAfterTapping()
@@ -109,9 +110,9 @@ extension SignInViewController {
         vStack.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(vStack)
         NSLayoutConstraint.activate([
-            vStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
-            vStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-            vStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            vStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 170),
+            vStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            vStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             
             errorLabel.leadingAnchor.constraint(equalTo: firstNameTextField.leadingAnchor, constant: 10),
             errorLabel.bottomAnchor.constraint(equalTo: firstNameTextField.topAnchor, constant: -10)

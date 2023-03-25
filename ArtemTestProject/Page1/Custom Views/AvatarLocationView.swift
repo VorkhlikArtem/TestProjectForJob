@@ -25,13 +25,13 @@ class AvatarLocationView: UIStackView {
     }()
         
     
-    init(_ image: UIImage?) {
+    init() {
         super.init(frame: .zero)
-        avatarImageView.image = image ?? UIImage(systemName: "person.crop.circle.fill")
         axis = .vertical
         alignment = .center
         spacing = 5
         
+        avatarImageView.contentMode = .scaleAspectFill
         addArrangedSubview(avatarImageView)
         addArrangedSubview(locationButton)
         
@@ -39,6 +39,10 @@ class AvatarLocationView: UIStackView {
             avatarImageView.heightAnchor.constraint(equalToConstant: 30),
             avatarImageView.widthAnchor.constraint(equalToConstant: 30),
         ])
+    }
+    
+    func configue(with image: UIImage?) {
+        avatarImageView.image = image ?? UIImage(systemName: "person.crop.circle.fill")
     }
     
     override func layoutSubviews() {
