@@ -76,10 +76,4 @@ class LocalDataManager {
         defaults.currentUserId = nil
     }
     
-    private init() {
-        defaults.didChangeValue(forKey: defaults.currentUserId!)
-        
-        
-    }
-    
 }

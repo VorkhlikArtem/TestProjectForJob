@@ -25,7 +25,6 @@ class AppCoordinator: Coordinator {
         
         currentUserId.sink { [weak self] currentUserId in
             if currentUserId != nil {
-                print(currentUserId!)
                 self?.createMainFlow()
             } else {
                 self?.createAuthFlow()

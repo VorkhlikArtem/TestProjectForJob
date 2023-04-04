@@ -15,7 +15,7 @@ struct CategoryItem {
 extension CategoryItem {
     static let categorySectionModel: [CategoryItem] = [
         CategoryItem(title: "Phones", imageName: "Phones"),
-        CategoryItem(title: "Headphones", imageName: "Headphones"),
+        CategoryItem(title: "Headphones", imageName: "Hphones"),
         CategoryItem(title: "Games", imageName: "Games"),
         CategoryItem(title: "Cars", imageName: "Cars"),
         CategoryItem(title: "Furniture", imageName: "Furniture"),
