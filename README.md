@@ -13,11 +13,11 @@ The UI was designed in accordance with the sketch in Figma. This is my pre-inter
 
 ## Overview  
 <p align="center">
-<img src= "https://github.com/VorkhlikArtem/TestProjectForJob/assets/115653999/5e703761-f5ee-40ea-a990-61aff90f831d" width="180">
-<img src= "https://github.com/VorkhlikArtem/TestProjectForJob/assets/115653999/2139f134-6923-4093-9ce1-aac6baa08be9" width="180">
-<img src= "https://github.com/VorkhlikArtem/TestProjectForJob/assets/115653999/1d7dc8d4-24e8-447b-814a-24ce97d3456f" width="180">
-<img src= "https://github.com/VorkhlikArtem/TestProjectForJob/assets/115653999/12e91af5-fe89-4bdf-9667-1070e7e30310" width="180">
-<img src= "https://github.com/VorkhlikArtem/TestProjectForJob/assets/115653999/ddd622b4-a2ca-44b3-bbd5-3ae386e6528a" width="180">
+<img src= "https://github.com/VorkhlikArtem/TestProjectForJob/assets/115653999/5e703761-f5ee-40ea-a990-61aff90f831d" width="150">
+<img src= "https://github.com/VorkhlikArtem/TestProjectForJob/assets/115653999/2139f134-6923-4093-9ce1-aac6baa08be9" width="150">
+<img src= "https://github.com/VorkhlikArtem/TestProjectForJob/assets/115653999/1d7dc8d4-24e8-447b-814a-24ce97d3456f" width="150">
+<img src= "https://github.com/VorkhlikArtem/TestProjectForJob/assets/115653999/12e91af5-fe89-4bdf-9667-1070e7e30310" width="150">
+<img src= "https://github.com/VorkhlikArtem/TestProjectForJob/assets/115653999/ddd622b4-a2ca-44b3-bbd5-3ae386e6528a" width="150">
 </p>
 
 ______
