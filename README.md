@@ -27,17 +27,16 @@ The app catches and handles 4 different errors for user's input in text fields (
 The *regular expression* was used to validate an email address. 
 
 <p align="center">
-<img src= "https://github.com/VorkhlikArtem/TestProjectForJob/assets/115653999/635a60ca-425d-4a79-bd02-e2a7c8e8fcb2" width="220">
-<img src= "https://github.com/VorkhlikArtem/TestProjectForJob/assets/115653999/14b501bd-0716-4343-bf46-72c3751fd9fb" width="220">
-  <img src= "https://github.com/VorkhlikArtem/TestProjectForJob/assets/115653999/7879f878-693d-4c4d-9dbc-80bc2409f0b8" width="217">
-  <img src= "https://github.com/VorkhlikArtem/TestProjectForJob/assets/115653999/5fdad7ef-7f71-4174-8e14-b8adcd6c0dac" width="230">
-  <img src= "" width="230">
+<img src= "https://github.com/VorkhlikArtem/TestProjectForJob/assets/115653999/635a60ca-425d-4a79-bd02-e2a7c8e8fcb2" width="200">
+<img src= "https://github.com/VorkhlikArtem/TestProjectForJob/assets/115653999/14b501bd-0716-4343-bf46-72c3751fd9fb" width="200">
+  <img src= "https://github.com/VorkhlikArtem/TestProjectForJob/assets/115653999/7879f878-693d-4c4d-9dbc-80bc2409f0b8" width="197">
+  <img src= "https://github.com/VorkhlikArtem/TestProjectForJob/assets/115653999/5fdad7ef-7f71-4174-8e14-b8adcd6c0dac" width="210">
 
 </p>
 
 Password text field was designed with a secure eye that toggles dots and letters after tapping.  
 <p align="center">
-    <img src= "https://github.com/VorkhlikArtem/TestProjectForJob/assets/115653999/7a5ac486-fb4c-4698-b430-7b73173033f8" width="330">
+    <img src= "https://github.com/VorkhlikArtem/TestProjectForJob/assets/115653999/7a5ac486-fb4c-4698-b430-7b73173033f8" width="300">
 </p>
 
 ----
@@ -49,10 +48,10 @@ Detail VC consists of 2 collection views (the second one is for paging), detail 
 Profile VC provides the options of changing avatar and logging out. 
 
 <p align="center">
-  <img src= "https://github.com/VorkhlikArtem/TestProjectForJob/assets/115653999/d7e6d474-3809-43e8-b526-810a412cba34" width="230">
-  <img src= "https://github.com/VorkhlikArtem/TestProjectForJob/assets/115653999/22f34c1f-64da-418b-a22a-fdf9026a3e9b" width="230">
-<img src= "https://github.com/VorkhlikArtem/TestProjectForJob/assets/115653999/5f56c206-cb4a-48cf-91bf-71e6774e5b6c" width="230">
-    <img src= "https://github.com/VorkhlikArtem/TestProjectForJob/assets/115653999/427c3423-ba95-4081-83ac-ac01845a06b8" width="230">
+  <img src= "https://github.com/VorkhlikArtem/TestProjectForJob/assets/115653999/d7e6d474-3809-43e8-b526-810a412cba34" width="210">
+  <img src= "https://github.com/VorkhlikArtem/TestProjectForJob/assets/115653999/22f34c1f-64da-418b-a22a-fdf9026a3e9b" width="210">
+<img src= "https://github.com/VorkhlikArtem/TestProjectForJob/assets/115653999/5f56c206-cb4a-48cf-91bf-71e6774e5b6c" width="210">
+    <img src= "https://github.com/VorkhlikArtem/TestProjectForJob/assets/115653999/427c3423-ba95-4081-83ac-ac01845a06b8" width="210">
 </p>
 
 
